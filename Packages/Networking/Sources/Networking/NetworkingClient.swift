@@ -61,12 +61,16 @@ public class NetworkingClient {
 
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = endpoint.method.rawValue
+        urlRequest.allHTTPHeaderFields = config.header
         urlRequest.addValue("application/json", forHTTPHeaderField: "Accept")
         urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
         urlRequest.addValue("true", forHTTPHeaderField: "X-Use-Cache")
 
         if let token = config.token, !token.isEmpty {
             urlRequest.addValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+        }
+        endpoint.header?.forEach { key, value in
+            urlRequest.addValue(value, forHTTPHeaderField: key)
         }
         
         if let body = endpoint.body {
