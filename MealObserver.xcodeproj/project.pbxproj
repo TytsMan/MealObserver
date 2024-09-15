@@ -14,6 +14,15 @@
 		8646C0622C9756BC0005C0E1 /* MealObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0612C9756BC0005C0E1 /* MealObserverTests.swift */; };
 		8646C06C2C9756BC0005C0E1 /* MealObserverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C06B2C9756BC0005C0E1 /* MealObserverUITests.swift */; };
 		8646C06E2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C06D2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift */; };
+		8646C07C2C9757A00005C0E1 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 8646C07A2C9757A00005C0E1 /* Networking */; };
+		8646C07F2C9758550005C0E1 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 8646C07E2C9758550005C0E1 /* Networking */; };
+		8646C0842C9766C90005C0E1 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0832C9766C90005C0E1 /* Meal.swift */; };
+		8646C0872C9773F60005C0E1 /* MealFilterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0862C9773F60005C0E1 /* MealFilterService.swift */; };
+		8646C08A2C9775610005C0E1 /* FilterMealEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0892C9775610005C0E1 /* FilterMealEndpoint.swift */; };
+		8646C08C2C977AD30005C0E1 /* MealDetailsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C08B2C977AD30005C0E1 /* MealDetailsEndpoint.swift */; };
+		8646C08F2C977BC90005C0E1 /* MealFilterResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C08E2C977BC90005C0E1 /* MealFilterResponce.swift */; };
+		8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */; };
+		8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +54,14 @@
 		8646C0672C9756BC0005C0E1 /* MealObserverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealObserverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8646C06B2C9756BC0005C0E1 /* MealObserverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverUITests.swift; sourceTree = "<group>"; };
 		8646C06D2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		8646C07A2C9757A00005C0E1 /* Networking */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Networking; sourceTree = "<group>"; };
+		8646C0832C9766C90005C0E1 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		8646C0862C9773F60005C0E1 /* MealFilterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterService.swift; sourceTree = "<group>"; };
+		8646C0892C9775610005C0E1 /* FilterMealEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterMealEndpoint.swift; sourceTree = "<group>"; };
+		8646C08B2C977AD30005C0E1 /* MealDetailsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsEndpoint.swift; sourceTree = "<group>"; };
+		8646C08E2C977BC90005C0E1 /* MealFilterResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterResponce.swift; sourceTree = "<group>"; };
+		8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsResponce.swift; sourceTree = "<group>"; };
+		8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C07F2C9758550005C0E1 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,10 +93,12 @@
 		8646C0432C9756BA0005C0E1 = {
 			isa = PBXGroup;
 			children = (
+				8646C07B2C9757A00005C0E1 /* Packages */,
 				8646C04E2C9756BA0005C0E1 /* MealObserver */,
 				8646C0602C9756BC0005C0E1 /* MealObserverTests */,
 				8646C06A2C9756BC0005C0E1 /* MealObserverUITests */,
 				8646C04D2C9756BA0005C0E1 /* Products */,
+				8646C07D2C9758550005C0E1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +115,8 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				8646C0852C9773750005C0E1 /* Services */,
+				8646C0802C9760E50005C0E1 /* Models */,
 				8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */,
 				8646C0512C9756BA0005C0E1 /* ContentView.swift */,
 				8646C0532C9756BC0005C0E1 /* Assets.xcassets */,
@@ -129,6 +151,58 @@
 			path = MealObserverUITests;
 			sourceTree = "<group>";
 		};
+		8646C07B2C9757A00005C0E1 /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				8646C07A2C9757A00005C0E1 /* Networking */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+		8646C07D2C9758550005C0E1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8646C0802C9760E50005C0E1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0832C9766C90005C0E1 /* Meal.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8646C0852C9773750005C0E1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */,
+				8646C0862C9773F60005C0E1 /* MealFilterService.swift */,
+				8646C0882C9775380005C0E1 /* Endpoints */,
+				8646C08D2C977BA60005C0E1 /* Responses */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		8646C0882C9775380005C0E1 /* Endpoints */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0892C9775610005C0E1 /* FilterMealEndpoint.swift */,
+				8646C08B2C977AD30005C0E1 /* MealDetailsEndpoint.swift */,
+			);
+			path = Endpoints;
+			sourceTree = "<group>";
+		};
+		8646C08D2C977BA60005C0E1 /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				8646C08E2C977BC90005C0E1 /* MealFilterResponce.swift */,
+				8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */,
+			);
+			path = Responses;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -145,6 +219,9 @@
 			dependencies = (
 			);
 			name = MealObserver;
+			packageProductDependencies = (
+				8646C07E2C9758550005C0E1 /* Networking */,
+			);
 			productName = MealObserver;
 			productReference = 8646C04C2C9756BA0005C0E1 /* MealObserver.app */;
 			productType = "com.apple.product-type.application";
@@ -233,6 +310,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C07C2C9757A00005C0E1 /* Networking in Resources */,
 				8646C0582C9756BC0005C0E1 /* Preview Assets.xcassets in Resources */,
 				8646C0542C9756BC0005C0E1 /* Assets.xcassets in Resources */,
 			);
@@ -259,8 +337,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
 				8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */,
+				8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */,
+				8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */,
+				8646C08C2C977AD30005C0E1 /* MealDetailsEndpoint.swift in Sources */,
+				8646C0872C9773F60005C0E1 /* MealFilterService.swift in Sources */,
 				8646C0502C9756BA0005C0E1 /* MealObserverApp.swift in Sources */,
+				8646C08A2C9775610005C0E1 /* FilterMealEndpoint.swift in Sources */,
+				8646C08F2C977BC90005C0E1 /* MealFilterResponce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +694,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8646C07E2C9758550005C0E1 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Networking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8646C0442C9756BA0005C0E1 /* Project object */;
 }
