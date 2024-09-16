@@ -23,6 +23,7 @@
 		8646C08F2C977BC90005C0E1 /* MealFilterResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C08E2C977BC90005C0E1 /* MealFilterResponce.swift */; };
 		8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */; };
 		8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */; };
+		8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,7 @@
 		8646C08E2C977BC90005C0E1 /* MealFilterResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterResponce.swift; sourceTree = "<group>"; };
 		8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsResponce.swift; sourceTree = "<group>"; };
 		8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsService.swift; sourceTree = "<group>"; };
+		8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				8646C09B2C97AA690005C0E1 /* Helpers */,
 				8646C0852C9773750005C0E1 /* Services */,
 				8646C0802C9760E50005C0E1 /* Models */,
 				8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */,
@@ -201,6 +204,22 @@
 				8646C0902C977BF40005C0E1 /* MealDetailsResponce.swift */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		8646C09B2C97AA690005C0E1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8646C09C2C97AA770005C0E1 /* PropertyWrappers */,
+				8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8646C09C2C97AA770005C0E1 /* PropertyWrappers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PropertyWrappers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -337,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */,
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
 				8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */,
 				8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */,
