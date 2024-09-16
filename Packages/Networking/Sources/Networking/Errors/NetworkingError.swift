@@ -21,7 +21,7 @@ public enum NetworkingError: Error, Equatable {
     case serverError(status: ServerErrorStatus, message: String?)
     case nsurlError(status: NSURLError, message: String?)
     
-    init(statusCode: Int?, message: String? = nil) {
+    public init(statusCode: Int?, message: String? = nil) {
         guard let code = statusCode else {
             self = .internalStatus(status: .internetAccessError, message: message)
             return
@@ -60,7 +60,7 @@ public enum NetworkingError: Error, Equatable {
         self = .internalStatus(status: .unknown, message: message)
     }
     
-    var description: String {
+    public var description: String {
         switch self {
         case .internalStatus(let status, let message):
             return "Internal Status: \(status), \(message ?? "")"
