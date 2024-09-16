@@ -16,7 +16,7 @@ protocol MealDetailsServiceProtocol {
 
 struct MealDetailsService: MealDetailsServiceProtocol {
     
-    let network: NetworkingClient
+    let network: NetworkingClientProtocol
     
     func filterMeals(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
         let endpoint = MealDetailsEndpoint(id: id)

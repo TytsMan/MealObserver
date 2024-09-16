@@ -27,6 +27,7 @@
 		8646C09A2C97A06E0005C0E1 /* MealFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */; };
 		8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */; };
 		8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A22C97CE330005C0E1 /* MealView.swift */; };
+		8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterViewModel.swift; sourceTree = "<group>"; };
 		8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		8646C0A22C97CE330005C0E1 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
+		8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				8646C0A42C97D9370005C0E1 /* Protocols */,
 				8646C09B2C97AA690005C0E1 /* Helpers */,
 				8646C0952C979F9A0005C0E1 /* Screens */,
 				8646C0852C9773750005C0E1 /* Services */,
@@ -253,6 +256,14 @@
 				8646C0A22C97CE330005C0E1 /* MealView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		8646C0A42C97D9370005C0E1 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */,
 				8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */,
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
