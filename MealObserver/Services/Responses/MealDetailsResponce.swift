@@ -7,6 +7,6 @@
 
 import Foundation
 
-struct MealDetailsResponce: Codable {
-    let meals: [Meal.DTO]
+struct MealDetailsResponce: Decodable {
+    let meals: [Meal]
 }
