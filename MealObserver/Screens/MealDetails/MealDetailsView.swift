@@ -22,14 +22,11 @@ struct MealDetailsView: View {
             case .loading:
                 ProgressView()
             case .error(let message):
-                VStack {
-                    Image(systemName: "exclamationmark.triangle.fill")
-                        .frame(width: 36, height: 36)
-                        .foregroundColor(.red)
-                    Text(message)
-                        .font(.footnote)
-                        .foregroundColor(.gray)
-                }
+                PlaceholderView(
+                    imageName: "exclamationmark.triangle.fill",
+                    title: message,
+                    tintColor: .red
+                )
             case .content(let meal):
                 ScrollView {
                     VStack(alignment: .center) {

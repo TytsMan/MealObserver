@@ -20,14 +20,11 @@ struct MealFilterView: View {
             ZStack {
                 switch viewModel.state.listState {
                 case .default:
-                    VStack {
-                        Image(systemName: "square.and.pencil")
-                            .frame(width: 36, height: 36)
-                            .foregroundColor(.gray)
-                        Text("Now you can start searching a meal by category")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
+                    PlaceholderView(
+                        imageName: "square.and.pencil",
+                        title: "Now you can start searching a meal by category",
+                        tintColor: .gray
+                    )
                 case .loading:
                     ProgressView()
                 case .items(let meals):
@@ -41,23 +38,17 @@ struct MealFilterView: View {
                         }
                     }
                 case .empty:
-                    VStack {
-                        Image(systemName: "swirl.circle.righthalf.filled")
-                            .frame(width: 36, height: 36)
-                            .foregroundColor(.gray)
-                        Text("You got nothing")
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
+                    PlaceholderView(
+                        imageName: "swirl.circle.righthalf.filled",
+                        title: "You got nothing",
+                        tintColor: .gray
+                    )
                 case .error(let message):
-                    VStack {
-                        Image(systemName: "exclamationmark.triangle.fill")
-                            .frame(width: 36, height: 36)
-                            .foregroundColor(.red)
-                        Text(message)
-                            .font(.footnote)
-                            .foregroundColor(.gray)
-                    }
+                    PlaceholderView(
+                        imageName: "exclamationmark.triangle.fill",
+                        title: message,
+                        tintColor: .red
+                    )
                 }
             }
             .navigationTitle("Meal Filter")
@@ -74,8 +65,7 @@ struct MealFilterView: View {
         viewModel: .init(
             state: .init(
                 searchText: "",
-                listState: .items([.mock1, .mock2, .mock3, .mock4, .mock5]
-                    .map(Meal.addParagraphsToInstructions))
+                listState: .items([.mock1, .mock2, .mock3, .mock4, .mock5].map(Meal.addParagraphsToInstructions))
             )
         )
     )
