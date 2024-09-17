@@ -36,6 +36,7 @@
 		865D57EB2C9A1EC600AAEB67 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */; };
 		865D57F02C9A283300AAEB67 /* Localizer in Frameworks */ = {isa = PBXBuildFile; productRef = 865D57EF2C9A283300AAEB67 /* Localizer */; };
 		865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57F22C9A29E100AAEB67 /* String+localization.swift */; };
+		8681DC772C9A37AC00C0AF3E /* Sequence+sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +87,7 @@
 		865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		865D57EE2C9A269000AAEB67 /* Localizer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Localizer; sourceTree = "<group>"; };
 		865D57F22C9A29E100AAEB67 /* String+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localization.swift"; sourceTree = "<group>"; };
+		8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -301,6 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				865D57F22C9A29E100AAEB67 /* String+localization.swift */,
+				8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
+				8681DC772C9A37AC00C0AF3E /* Sequence+sorted.swift in Sources */,
 				865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
 				8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */,

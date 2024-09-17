@@ -72,6 +72,7 @@ extension MealFilterView {
                     state.listState = .empty
                     return
                 }
+                let sortedMeals = meals.sorted(by: \.name)
                 state.listState = .items(meals)
             case .failure(let error):
                 state.listState = .error(message: error.description)
