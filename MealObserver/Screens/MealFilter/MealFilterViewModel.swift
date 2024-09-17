@@ -68,12 +68,13 @@ extension MealFilterView {
             let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
             switch result {
             case .success(let responce):
-                guard let meals = responce.meals else {
+                guard let meals = responce.meals?.compactMap({ $0 }) else {
                     state.listState = .empty
                     return
                 }
-                let sortedMeals = meals.sorted(by: \.name)
-                state.listState = .items(meals)
+                let sortedMeals = meals
+                    .sorted(by: \.name)
+                state.listState = .items(sortedMeals)
             case .failure(let error):
                 state.listState = .error(message: error.description)
             }

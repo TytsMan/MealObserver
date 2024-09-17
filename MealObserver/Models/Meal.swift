@@ -21,7 +21,7 @@ struct Meal: Hashable, Decodable, Identifiable {
     let category: String?
     let area: String?
     let instructions: String?
-    let thumbnailUrl: URL?
+    let thumbnailUrl: URL
     let tags: String?
     let youtubeURL: URL?
     let source: URL?
@@ -94,10 +94,10 @@ struct Meal: Hashable, Decodable, Identifiable {
         self.category = try container.decodeIfPresent(String.self, forKey: .strCategory)
         self.area = try container.decodeIfPresent(String.self, forKey: .strArea)
         self.instructions = try container.decodeIfPresent(String.self, forKey: .strInstructions)
-        self.thumbnailUrl = URL(string: try container.decodeIfPresent(String.self, forKey: .strMealThumb) ?? "")
+        self.thumbnailUrl = try container.decode(URL.self, forKey: .strMealThumb)
         self.tags = try container.decodeIfPresent(String.self, forKey: .strTags)
-        self.youtubeURL = URL(string: try container.decodeIfPresent(String.self, forKey: .strYoutube) ?? "")
-        self.source = URL(string: try container.decodeIfPresent(String.self, forKey: .strSource) ?? "")
+        self.youtubeURL = try container.decodeIfPresent(URL.self, forKey: .strYoutube)
+        self.source = try container.decodeIfPresent(URL.self, forKey: .strSource)
         self.imageSource = try container.decodeIfPresent(String.self, forKey: .strImageSource)
         self.creativeCommonsConfirmed = try container.decodeIfPresent(String.self, forKey: .strCreativeCommonsConfirmed)
         self.dateModified = try container.decodeIfPresent(Date.self, forKey: .dateModified)
@@ -182,7 +182,9 @@ struct Meal: Hashable, Decodable, Identifiable {
                 name: try container.decodeIfPresent(String.self, forKey: .strIngredient20),
                 measure: try container.decodeIfPresent(String.self, forKey: .strMeasure20)
             ),
-        ].compactMap { $0 }
+        ]
+            .compactMap { $0 }
+            .filter { !$0.isEmpty }
     }
     // swiftlint:enable function_body_length
 }
@@ -191,8 +193,12 @@ private extension Meal.Igredient {
     init?(name: String?, measure: String?) {
         guard let name, let measure else { return nil }
         
-        self.name = name
-        self.measure = measure
+        self.name = name.trimmingCharacters(in: .whitespaces)
+        self.measure = measure.trimmingCharacters(in: .whitespaces)
+    }
+    
+    var isEmpty: Bool {
+        name.isEmpty && measure.isEmpty
     }
 }
 
@@ -204,7 +210,7 @@ extension Meal {
         category: String? = nil,
         area: String? = nil,
         instructions: String? = nil,
-        thumbnailUrl: URL? = nil,
+        thumbnailUrl: URL,
         tags: String? = nil,
         youtubeURL: URL? = nil,
         source: URL? = nil,

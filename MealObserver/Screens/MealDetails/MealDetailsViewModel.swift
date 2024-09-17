@@ -42,7 +42,7 @@ extension MealDetailsView {
                 let result = await mealDetailsService.mealDetails(id: mealId)
                 switch result {
                 case .success(let responce):
-                    guard let meal = responce.meals?.first else {
+                    guard let meal = responce.meals?.compactMap({ $0 }).first else {
                         state = .error(message: "Bad meal id")
                         return
                     }

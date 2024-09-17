@@ -8,5 +8,5 @@
 import Foundation
 
 struct MealFilterResponce: Decodable {
-    let meals: [Meal]?
+    let meals: [Meal?]?
 }
