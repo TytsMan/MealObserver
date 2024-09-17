@@ -5,23 +5,16 @@
 //  Created by divan on 9/15/24.
 //
 
-import Networking
 import SwiftUI
 
 @main
 struct MealObserverApp: App {
-    let networkClient: NetworkingClient = NetworkingClient(
-        config: .init(
-            scheme: "https",
-            host: "www.themealdb.com",
-            header: nil,
-            token: nil
-        )
-    )
+    static let dependencies = AppDependencies()
+    static let screenFactory = ScreenFactory(dependencies: dependencies)
     
     var body: some Scene {
         WindowGroup {
-            MealFilterView(viewModel: .init(mealFilterService: MealFilterService(network: networkClient)))
+            Self.screenFactory.createMealFilterView()
         }
     }
 }
