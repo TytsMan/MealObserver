@@ -5,7 +5,6 @@
 //  Created by divan on 9/17/24.
 //
 
-import Foundation
 import Quick
 import Nimble
 import Networking
@@ -15,6 +14,20 @@ import Networking
 final class MealFilterViewModelSpec: AsyncSpec {
     override class func spec() {
         describe("Testing MealFilterViewModel") {
+            context("Check initial State") {
+                var viewModel: MealFilterView.ViewModel!
+                beforeEach {
+                    viewModel = MealFilterView.ViewModel(
+                        mealFilterService: MealFilterServiceSuccessMock()
+                    )
+                }
+                
+                it("init view model") {
+                    expect(viewModel.state)
+                        .to(equal(MealFilterView.ViewModel.State.default))
+                }
+            }
+            
             context("searchTextDidChanged") {
                 var viewModel: MealFilterView.ViewModel!
                 beforeEach {
@@ -33,10 +46,13 @@ final class MealFilterViewModelSpec: AsyncSpec {
             }
             
             context("make a succeful request") {
+                let mockItems: [Meal] = [.mock1, .mock2, .mock3, .mock4, .mock5]
                 var viewModel: MealFilterView.ViewModel!
                 beforeEach {
                     viewModel = MealFilterView.ViewModel(
-                        mealFilterService: MealFilterServiceSuccessMock()
+                        mealFilterService: MealFilterServiceSuccessMock(
+                            mockItems: mockItems
+                        )
                     )
                 }
                 
@@ -48,15 +64,17 @@ final class MealFilterViewModelSpec: AsyncSpec {
 
                     try await Task.sleep(for: .milliseconds(500))
                     expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.items(MealFilterServiceSuccessMock.mockItems)))
+                        .to(equal(MealFilterView.ViewModel.State.ListState.items(mockItems)))
                 }
             }
             
             context("make a failure request") {
+                let failureMessage: String = "Bad request."
+                
                 var viewModel: MealFilterView.ViewModel!
                 beforeEach {
                     viewModel = MealFilterView.ViewModel(
-                        mealFilterService: MealFilterServiceFailureMock()
+                        mealFilterService: MealFilterServiceFailureMock(failureMessage: failureMessage)
                     )
                 }
                 
@@ -66,13 +84,13 @@ final class MealFilterViewModelSpec: AsyncSpec {
 
                     viewModel.searchTextDidChanged(searchText: "Dessert")
 
-                    let failureMessage = NetworkingError(
+                    let error = NetworkingError(
                         statusCode: nil,
-                        message: MealFilterServiceFailureMock.failureMessage
-                    ).description
+                        message: failureMessage
+                    )
                     try await Task.sleep(for: .milliseconds(500))
                     expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.error(message: failureMessage)))
+                        .to(equal(MealFilterView.ViewModel.State.ListState.error(message: error.description)))
                 }
             }
         }

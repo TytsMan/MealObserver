@@ -21,6 +21,8 @@ extension MealFilterView {
                 case error(message: String)
             }
             
+            static let `default`: Self = .init(searchText: "", listState: .default)
+            
             var searchText: String
             var listState: ListState
         }
@@ -33,7 +35,7 @@ extension MealFilterView {
         
         init(
             mealFilterService: MealFilterServiceProtocol = MealFilterServiceSuccessMock(),
-            state: State = .init(searchText: "", listState: .default)
+            state: State = .default
         ) {
             self.mealFilterService = mealFilterService
             self.state = state

@@ -26,7 +26,13 @@ struct MealFilterService: MealFilterServiceProtocol {
 
 #if DEBUG
 struct MealFilterServiceSuccessMock: MealFilterServiceProtocol {
-    static let mockItems: [Meal] = [.mock1, .mock2, .mock3, .mock4, .mock5]
+    let mockItems: [Meal]
+    
+    init(
+        mockItems: [Meal] = [.mock1, .mock2, .mock3, .mock4, .mock5]
+    ) {
+        self.mockItems = mockItems
+    }
     
     func filterMeals(
         query: String,
@@ -34,13 +40,17 @@ struct MealFilterServiceSuccessMock: MealFilterServiceProtocol {
     ) async -> Result<MealFilterResponce, Networking.NetworkingError> {
         .success(
             MealFilterResponce(
-                meals: Self.mockItems
+                meals: mockItems
             )
         )
     }
 }
 struct MealFilterServiceFailureMock: MealFilterServiceProtocol {
-    static let failureMessage = "NetworkingError"
+    let failureMessage: String
+    
+    init(failureMessage: String = "Bad request.") {
+        self.failureMessage = failureMessage
+    }
     
     func filterMeals(
         query: String,
@@ -49,7 +59,7 @@ struct MealFilterServiceFailureMock: MealFilterServiceProtocol {
         .failure(
             NetworkingError(
                 statusCode: nil,
-                message: Self.failureMessage
+                message: failureMessage
             )
         )
     }
