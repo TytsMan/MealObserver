@@ -11,14 +11,14 @@ import Foundation
 import Networking
 
 protocol MealDetailsServiceProtocol {
-    func filterMeals(id: String) async -> Result<MealDetailsResponce, NetworkingError>
+    func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError>
 }
 
 struct MealDetailsService: MealDetailsServiceProtocol {
     
     let network: NetworkingClientProtocol
     
-    func filterMeals(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
+    func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
         let endpoint = MealDetailsEndpoint(id: id)
         return await network.request(endpoint: endpoint)
     }
