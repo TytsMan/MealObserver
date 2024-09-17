@@ -28,6 +28,8 @@
 		8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */; };
 		8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A22C97CE330005C0E1 /* MealView.swift */; };
 		8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */; };
+		8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */; };
+		8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		8646C0A22C97CE330005C0E1 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientProtocol.swift; sourceTree = "<group>"; };
+		8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
+		8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +223,7 @@
 		8646C0952C979F9A0005C0E1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8646C0A72C9880AC0005C0E1 /* MealDetails */,
 				8646C0962C97A03E0005C0E1 /* MealFilter */,
 			);
 			path = Screens;
@@ -264,6 +269,15 @@
 				8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */,
 			);
 			path = Protocols;
+			sourceTree = "<group>";
+		};
+		8646C0A72C9880AC0005C0E1 /* MealDetails */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */,
+				8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */,
+			);
+			path = MealDetails;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -406,7 +420,9 @@
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
 				8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */,
 				8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */,
+				8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */,
 				8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */,
+				8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */,
 				8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */,
 				8646C09A2C97A06E0005C0E1 /* MealFilterViewModel.swift in Sources */,
 				8646C08C2C977AD30005C0E1 /* MealDetailsEndpoint.swift in Sources */,
