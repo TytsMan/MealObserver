@@ -48,6 +48,7 @@ extension MealFilterView {
         }
         
         func searchTextDidChanged(searchText: String) {
+            state.searchText = searchText
             if searchText.isEmpty {
                 Task {
                     await fetchItems(with: nil)
