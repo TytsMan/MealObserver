@@ -23,7 +23,7 @@ struct MealFilterView: View {
                 case .default:
                     PlaceholderView(
                         imageName: "square.and.pencil",
-                        title: "Now you can start searching a meal by category",
+                        title: "Now you can start searching a meal by category".localized,
                         tintColor: .gray
                     )
                 case .loading:
@@ -41,20 +41,20 @@ struct MealFilterView: View {
                 case .empty:
                     PlaceholderView(
                         imageName: "swirl.circle.righthalf.filled",
-                        title: "You got nothing",
+                        title: "You got nothing".localized,
                         tintColor: .gray
                     )
                 case .error(let message):
                     PlaceholderView(
                         imageName: "exclamationmark.triangle.fill",
-                        title: message,
+                        title: message.localized,
                         tintColor: .red
                     )
                 }
             }
             .navigationTitle("Meal Filter")
         }
-        .searchable(text: $viewModel.state.searchText, prompt: "Filter meal by category")
+        .searchable(text: $viewModel.state.searchText, prompt: "Filter meal by category".localized)
         .onChange(of: viewModel.state.searchText) { _, newValue in
             viewModel.searchTextDidChanged(searchText: newValue)
         }

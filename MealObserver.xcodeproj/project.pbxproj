@@ -34,6 +34,8 @@
 		865D57E72C9A1AA100AAEB67 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57E62C9A1AA100AAEB67 /* PlaceholderView.swift */; };
 		865D57E92C9A1EB100AAEB67 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57E82C9A1EB100AAEB67 /* AppDependencies.swift */; };
 		865D57EB2C9A1EC600AAEB67 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */; };
+		865D57F02C9A283300AAEB67 /* Localizer in Frameworks */ = {isa = PBXBuildFile; productRef = 865D57EF2C9A283300AAEB67 /* Localizer */; };
+		865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57F22C9A29E100AAEB67 /* String+localization.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +85,7 @@
 		865D57E82C9A1EB100AAEB67 /* AppDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDependencies.swift; sourceTree = "<group>"; };
 		865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		865D57EE2C9A269000AAEB67 /* Localizer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Localizer; sourceTree = "<group>"; };
+		865D57F22C9A29E100AAEB67 /* String+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localization.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				865D57F02C9A283300AAEB67 /* Localizer in Frameworks */,
 				8646C07F2C9758550005C0E1 /* Networking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +142,7 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				865D57F12C9A29BF00AAEB67 /* Extensions */,
 				8646C0A42C97D9370005C0E1 /* Protocols */,
 				8646C09B2C97AA690005C0E1 /* Helpers */,
 				8646C0952C979F9A0005C0E1 /* Screens */,
@@ -308,6 +313,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		865D57F12C9A29BF00AAEB67 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				865D57F22C9A29E100AAEB67 /* String+localization.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -327,6 +340,7 @@
 			name = MealObserver;
 			packageProductDependencies = (
 				8646C07E2C9758550005C0E1 /* Networking */,
+				865D57EF2C9A283300AAEB67 /* Localizer */,
 			);
 			productName = MealObserver;
 			productReference = 8646C04C2C9756BA0005C0E1 /* MealObserver.app */;
@@ -475,6 +489,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
+				865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
 				8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */,
 				8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */,
@@ -884,6 +899,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8646C0AD2C99F6030005C0E1 /* XCRemoteSwiftPackageReference "Quick" */;
 			productName = Quick;
+		};
+		865D57EF2C9A283300AAEB67 /* Localizer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Localizer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

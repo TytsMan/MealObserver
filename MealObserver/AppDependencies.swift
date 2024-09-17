@@ -5,10 +5,12 @@
 //  Created by divan on 9/17/24.
 //
 
+import Foundation
+import Localizer
 import Networking
 
-final class AppDependencies {
-    lazy var networkClient: NetworkingClient = {
+final class AppDependencies: ObservableObject {
+    private(set) lazy var networkClient: NetworkingClient = {
         NetworkingClient(
             config: .init(
                 scheme: "https",
@@ -18,4 +20,6 @@ final class AppDependencies {
             )
         )
     }()
+    
+    private(set) lazy var localizer = LocalizerClient()
 }

@@ -7,15 +7,17 @@
 
 import SwiftUI
 
+let dependencies = AppDependencies()
+
 @main
 struct MealObserverApp: App {
-    static let dependencies = AppDependencies()
-    static let screenFactory = ScreenFactory(dependencies: dependencies)
+    private let screenFactory = ScreenFactory(dependencies: dependencies)
     
     var body: some Scene {
         WindowGroup {
-            Self.screenFactory.createMealFilterView()
-                .environmentObject(Self.screenFactory)
+            screenFactory.createMealFilterView()
+                .environmentObject(dependencies)
+                .environmentObject(screenFactory)
         }
     }
 }

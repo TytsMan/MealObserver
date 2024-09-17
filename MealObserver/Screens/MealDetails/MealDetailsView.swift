@@ -24,7 +24,7 @@ struct MealDetailsView: View {
             case .error(let message):
                 PlaceholderView(
                     imageName: "exclamationmark.triangle.fill",
-                    title: message,
+                    title: message.localized,
                     tintColor: .red
                 )
             case .content(let meal):
@@ -40,7 +40,7 @@ struct MealDetailsView: View {
                         
                         if let instructions = meal.instructions {
                             VStack {
-                                Text("Instructions:")
+                                Text("Instructions:".localized)
                                     .font(.headline)
                                     .padding()
                                 Text(instructions)
@@ -49,7 +49,7 @@ struct MealDetailsView: View {
                         
                         if let ingredients = meal.ingredients, !ingredients.isEmpty {
                             VStack(alignment: .center) {
-                                Text("Ingredients:")
+                                Text("Ingredients:".localized)
                                     .font(.headline)
                                     .padding()
                                 ForEach(ingredients, id: \.self) { ingredient in
