@@ -28,48 +28,53 @@ struct MealDetailsView: View {
                     tintColor: .red
                 )
             case .content(let meal):
-                ScrollView {
-                    VStack(alignment: .center) {
-                        AsyncImage(url: meal.thumbnailUrl) { image in
-                            image.resizable()
-                        } placeholder: {
-                            ProgressView()
-                        }
-                        .frame(width: 256, height: 256)
-                        .cornerRadius(32)
-                        
-                        if let instructions = meal.instructions {
-                            VStack {
-                                Text("Instructions:".localized)
-                                    .font(.headline)
-                                    .padding()
-                                Text(instructions)
-                            }.padding()
-                        }
-                        
-                        if let ingredients = meal.ingredients, !ingredients.isEmpty {
-                            VStack(alignment: .center) {
-                                Text("Ingredients:".localized)
-                                    .font(.headline)
-                                    .padding()
-                                ForEach(ingredients, id: \.self) { ingredient in
-                                    HStack {
-                                        Text("\(ingredient.name.capitalized)")
-                                        Spacer()
-                                        Text("\(ingredient.measure)")
-                                    }
-                                }
-                            }.padding()
-                        }
-                        Spacer()
-                    }
-                }
-                .navigationTitle(meal.name)
+                mealView(meal)
             }
         }
         .onAppear {
             viewModel.viewDidAppear()
         }
+    }
+    
+    @ViewBuilder 
+    private func mealView(_ meal: Meal) -> some View {
+        ScrollView {
+            VStack(alignment: .center) {
+                AsyncImage(url: meal.thumbnailUrl) { image in
+                    image.resizable()
+                } placeholder: {
+                    ProgressView()
+                }
+                .frame(width: 256, height: 256)
+                .cornerRadius(32)
+                
+                if let instructions = meal.instructions {
+                    VStack {
+                        Text("Instructions:".localized)
+                            .font(.headline)
+                            .padding()
+                        Text(instructions)
+                    }.padding()
+                }
+                
+                if let ingredients = meal.ingredients, !ingredients.isEmpty {
+                    VStack(alignment: .center) {
+                        Text("Ingredients:".localized)
+                            .font(.headline)
+                            .padding()
+                        ForEach(ingredients, id: \.self) { ingredient in
+                            HStack {
+                                Text("\(ingredient.name.capitalized)")
+                                Spacer()
+                                Text("\(ingredient.measure)")
+                            }
+                        }
+                    }.padding()
+                }
+                Spacer()
+            }
+        }
+        .navigationTitle(meal.name)
     }
 }
 
