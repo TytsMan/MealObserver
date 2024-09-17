@@ -15,7 +15,6 @@ enum FilterType {
 }
 
 struct FilterMealEndpoint {
-    
     typealias Query = String
     
     private let query: Query
@@ -28,7 +27,6 @@ struct FilterMealEndpoint {
 }
 
 extension FilterMealEndpoint: Endpoint {
-    
     typealias Response = MealFilterResponce
     
     var path: String {

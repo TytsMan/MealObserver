@@ -30,6 +30,8 @@
 		8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */; };
 		8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */; };
 		8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */; };
+		8646C0B22C9A02F60005C0E1 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 8646C0B12C9A02F60005C0E1 /* Nimble */; };
+		8646C0B42C9A02F90005C0E1 /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = 8646C0B32C9A02F90005C0E1 /* Quick */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +93,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8646C0B42C9A02F90005C0E1 /* Quick in Frameworks */,
+				8646C0B22C9A02F60005C0E1 /* Nimble in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,6 +292,7 @@
 			buildConfigurationList = 8646C0712C9756BC0005C0E1 /* Build configuration list for PBXNativeTarget "MealObserver" */;
 			buildPhases = (
 				8646C0482C9756BA0005C0E1 /* Sources */,
+				8646C0AF2C99F6EF0005C0E1 /* Linter */,
 				8646C0492C9756BA0005C0E1 /* Frameworks */,
 				8646C04A2C9756BA0005C0E1 /* Resources */,
 			);
@@ -317,6 +322,10 @@
 				8646C05F2C9756BC0005C0E1 /* PBXTargetDependency */,
 			);
 			name = MealObserverTests;
+			packageProductDependencies = (
+				8646C0B12C9A02F60005C0E1 /* Nimble */,
+				8646C0B32C9A02F90005C0E1 /* Quick */,
+			);
 			productName = MealObserverTests;
 			productReference = 8646C05D2C9756BC0005C0E1 /* MealObserverTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -371,6 +380,11 @@
 				Base,
 			);
 			mainGroup = 8646C0432C9756BA0005C0E1;
+			packageReferences = (
+				8646C0AC2C99F5D40005C0E1 /* XCRemoteSwiftPackageReference "Nimble" */,
+				8646C0AD2C99F6030005C0E1 /* XCRemoteSwiftPackageReference "Quick" */,
+				8646C0B02C99F8750005C0E1 /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 8646C04D2C9756BA0005C0E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -408,6 +422,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8646C0AF2C99F6EF0005C0E1 /* Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = Linter;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == arm64 ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8646C0482C9756BA0005C0E1 /* Sources */ = {
@@ -590,6 +626,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -626,6 +663,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -779,10 +817,47 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		8646C0AC2C99F5D40005C0E1 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8646C0AD2C99F6030005C0E1 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		8646C0B02C99F8750005C0E1 /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint";
+			requirement = {
+				kind = exactVersion;
+				version = 0.57.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		8646C07E2C9758550005C0E1 /* Networking */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = Networking;
+		};
+		8646C0B12C9A02F60005C0E1 /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8646C0AC2C99F5D40005C0E1 /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		8646C0B32C9A02F90005C0E1 /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8646C0AD2C99F6030005C0E1 /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

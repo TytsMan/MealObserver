@@ -5,9 +5,8 @@
 //  Created by divan on 9/15/24.
 //
 
-import SwiftUI
 import Networking
-
+import SwiftUI
 
 struct MealFilterView: View {
     @State private var viewModel: ViewModel
@@ -64,15 +63,17 @@ struct MealFilterView: View {
                 }
             }
             .navigationTitle("Meal Filter")
-            
         }
         .searchable(text: $searchText, prompt: "Filter meal by category")
         .onChange(of: searchText) { _, newValue in
-            viewModel.searchTextDidChanged(searchText: searchText)
+            viewModel.searchTextDidChanged(searchText: newValue)
         }
     }
 }
 
 #Preview {
-    MealFilterView(viewModel: .init())
+    MealFilterView(
+        viewModel: .init(listState: .items([.mock1, .mock2, .mock3, .mock4, .mock5]
+            .map(Meal.addParagraphsToInstructions)))
+    )
 }

@@ -16,7 +16,7 @@ class DependencyInjectionContainer {
         services[String(describing: T.self)] = service
     }
 
-    func resolve<T>(_ serviceType: T.Type) -> T? {
-        return services[String(describing: T.self)] as? T
+    func resolve<T>() -> T? {
+        services[String(describing: T.self)] as? T
     }
 }

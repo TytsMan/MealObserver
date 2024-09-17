@@ -5,12 +5,11 @@
 //  Created by divan on 9/15/24.
 //
 
-import SwiftUI
 import Networking
+import SwiftUI
 
 @main
 struct MealObserverApp: App {
-    
     let networkClient: NetworkingClientProtocol = NetworkingClient(
         config: .init(
             scheme: "https",
@@ -19,7 +18,6 @@ struct MealObserverApp: App {
             token: nil
         )
     )
-    
     
     var body: some Scene {
         WindowGroup {

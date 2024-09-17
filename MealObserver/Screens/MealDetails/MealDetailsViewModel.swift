@@ -8,10 +8,8 @@
 import Foundation
 
 extension MealDetailsView {
-    
     @Observable
     class ViewModel {
-        
         enum State: Hashable {
             case loading
             case error(message: String)

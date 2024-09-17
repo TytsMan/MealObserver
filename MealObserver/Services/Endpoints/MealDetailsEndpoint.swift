@@ -9,17 +9,14 @@ import Foundation
 import Networking
 
 struct MealDetailsEndpoint {
-    
     private let id: String
     
     init(id: String) {
         self.id = id
     }
-    
 }
 
 extension MealDetailsEndpoint: Endpoint {
-    
     typealias Response = MealDetailsResponce
     
     var path: String {

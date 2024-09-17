@@ -13,7 +13,6 @@ protocol MealFilterServiceProtocol {
 }
 
 struct MealFilterService: MealFilterServiceProtocol {
-    
     let network: NetworkingClientProtocol
     
     func filterMeals(query: String, filterType: FilterType) async -> Result<MealFilterResponce, NetworkingError> {
@@ -27,7 +26,10 @@ struct MealFilterService: MealFilterServiceProtocol {
 
 #if DEBUG
 struct MealFilterServiceSuccessMock: MealFilterServiceProtocol {
-    func filterMeals(query: String, filterType: FilterType) async -> Result<MealFilterResponce, Networking.NetworkingError> {
+    func filterMeals(
+        query: String,
+        filterType: FilterType
+    ) async -> Result<MealFilterResponce, Networking.NetworkingError> {
         .success(
             MealFilterResponce(
                 meals: [
@@ -38,7 +40,10 @@ struct MealFilterServiceSuccessMock: MealFilterServiceProtocol {
     }
 }
 struct MealFilterServiceFailureMock: MealFilterServiceProtocol {
-    func filterMeals(query: String, filterType: FilterType) async -> Result<MealFilterResponce, Networking.NetworkingError> {
+    func filterMeals(
+        query: String,
+        filterType: FilterType
+    ) async -> Result<MealFilterResponce, Networking.NetworkingError> {
         .failure(NetworkingError(statusCode: nil, message: "NetworkingError"))
     }
 }

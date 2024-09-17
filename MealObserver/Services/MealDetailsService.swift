@@ -6,8 +6,6 @@
 //
 
 import Foundation
-
-import Foundation
 import Networking
 
 protocol MealDetailsServiceProtocol {
@@ -15,7 +13,6 @@ protocol MealDetailsServiceProtocol {
 }
 
 struct MealDetailsService: MealDetailsServiceProtocol {
-    
     let network: NetworkingClientProtocol
     
     func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {

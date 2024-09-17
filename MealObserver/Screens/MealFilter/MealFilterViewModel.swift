@@ -5,15 +5,13 @@
 //  Created by divan on 9/15/24.
 //
 
-import Foundation
 import Combine
+import Foundation
 import Networking
 
 extension MealFilterView {
-    
     @Observable
     final class ViewModel {
-        
         enum ListState: Hashable {
             case `default`
             case loading
@@ -26,12 +24,14 @@ extension MealFilterView {
         private var searchTextInputSubject = PassthroughSubject<String?, Never>()
         private var cancellables = Set<AnyCancellable>()
         
-        var listState: ListState = .default
+        private(set) var listState: ListState
         
         init(
-            mealFilterService: MealFilterServiceProtocol = MealFilterServiceSuccessMock()
+            mealFilterService: MealFilterServiceProtocol = MealFilterServiceSuccessMock(),
+            listState: ListState = .default
         ) {
             self.mealFilterService = mealFilterService
+            self.listState = listState
             self.searchTextInputSubject
                 .debounce(for: 0.3, scheduler: RunLoop.main)
                 .sink { [weak self] searchInput in
@@ -40,11 +40,6 @@ extension MealFilterView {
                     }
                 }
                 .store(in: &cancellables)
-            
-#if DEBUG
-            listState = .items([.mock1, .mock2, .mock3, .mock4, .mock5]
-                .map(Meal.addParagraphsToInstructions))
-#endif
         }
         
         func searchTextDidChanged(searchText: String) {
@@ -65,7 +60,7 @@ extension MealFilterView {
             let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
             switch result {
             case .success(let responce):
-                guard var meals = responce.meals else {
+                guard let meals = responce.meals else {
                     listState = .empty
                     return
                 }

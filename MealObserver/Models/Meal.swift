@@ -8,7 +8,6 @@
 import Foundation
 
 struct Meal: Hashable, Decodable, Identifiable {
-    
     typealias ID = String
     
     struct Igredient: Hashable {
@@ -86,7 +85,7 @@ struct Meal: Hashable, Decodable, Identifiable {
         case strCreativeCommonsConfirmed
         case dateModified
     }
-    
+    // swiftlint:disable function_body_length
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .idMeal)
@@ -185,6 +184,7 @@ struct Meal: Hashable, Decodable, Identifiable {
             ),
         ].compactMap { $0 }
     }
+    // swiftlint:enable function_body_length
 }
 
 private extension Meal.Igredient {
@@ -197,7 +197,6 @@ private extension Meal.Igredient {
 }
 
 extension Meal {
-    
     init(
         id: ID,
         name: String,
@@ -255,6 +254,7 @@ extension Meal {
 }
 
 #if DEBUG
+// swiftlint:disable all
 extension Meal {
     
     static var mock1: Self {
@@ -309,4 +309,5 @@ extension Meal {
         )
     }
 }
+// swiftlint:enable all
 #endif
