@@ -13,7 +13,7 @@ protocol MealDetailsServiceProtocol {
 }
 
 struct MealDetailsService: MealDetailsServiceProtocol {
-    let network: NetworkingClientProtocol
+    let network: NetworkingClient
     
     func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
         let endpoint = MealDetailsEndpoint(id: id)

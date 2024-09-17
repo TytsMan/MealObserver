@@ -26,7 +26,6 @@
 		8646C09A2C97A06E0005C0E1 /* MealFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */; };
 		8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */; };
 		8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A22C97CE330005C0E1 /* MealView.swift */; };
-		8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */; };
 		8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */; };
 		8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */; };
 		8646C0B22C9A02F60005C0E1 /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = 8646C0B12C9A02F60005C0E1 /* Nimble */; };
@@ -76,7 +75,6 @@
 		8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterViewModel.swift; sourceTree = "<group>"; };
 		8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		8646C0A22C97CE330005C0E1 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
-		8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingClientProtocol.swift; sourceTree = "<group>"; };
 		8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
 		8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
 		865D57E12C9A09D000AAEB67 /* MealFilterViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterViewModelSpec.swift; sourceTree = "<group>"; };
@@ -275,7 +273,6 @@
 		8646C0A42C97D9370005C0E1 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				8646C0A52C97D9450005C0E1 /* NetworkingClientProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -472,7 +469,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8646C0A62C97D9450005C0E1 /* NetworkingClientProtocol.swift in Sources */,
 				8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */,
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,

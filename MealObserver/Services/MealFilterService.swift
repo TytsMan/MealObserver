@@ -13,7 +13,7 @@ protocol MealFilterServiceProtocol {
 }
 
 struct MealFilterService: MealFilterServiceProtocol {
-    let network: NetworkingClientProtocol
+    let network: NetworkingClient
     
     func filterMeals(query: String, filterType: FilterType) async -> Result<MealFilterResponce, NetworkingError> {
         let endpoint = FilterMealEndpoint(

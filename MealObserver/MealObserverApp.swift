@@ -10,7 +10,7 @@ import SwiftUI
 
 @main
 struct MealObserverApp: App {
-    let networkClient: NetworkingClientProtocol = NetworkingClient(
+    let networkClient: NetworkingClient = NetworkingClient(
         config: .init(
             scheme: "https",
             host: "www.themealdb.com",
