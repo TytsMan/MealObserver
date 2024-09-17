@@ -12,26 +12,31 @@ import Networking
 extension MealFilterView {
     @Observable
     final class ViewModel {
-        enum ListState: Hashable {
-            case `default`
-            case loading
-            case items([Meal])
-            case empty
-            case error(message: String)
+        struct State: Hashable {
+            enum ListState: Hashable {
+                case `default`
+                case loading
+                case items([Meal])
+                case empty
+                case error(message: String)
+            }
+            
+            var searchText: String
+            var listState: ListState
         }
         
         private var mealFilterService: MealFilterServiceProtocol
         private var searchTextInputSubject = PassthroughSubject<String?, Never>()
         private var cancellables = Set<AnyCancellable>()
         
-        private(set) var listState: ListState
+        var state: State
         
         init(
             mealFilterService: MealFilterServiceProtocol = MealFilterServiceSuccessMock(),
-            listState: ListState = .default
+            state: State = .init(searchText: "", listState: .default)
         ) {
             self.mealFilterService = mealFilterService
-            self.listState = listState
+            self.state = state
             self.searchTextInputSubject
                 .debounce(for: 0.3, scheduler: RunLoop.main)
                 .sink { [weak self] searchInput in
@@ -54,19 +59,19 @@ extension MealFilterView {
         
         private func fetchItems(with searchText: String?) async {
             guard let searchText, !searchText.isEmpty else {
-                listState = .default
+                state.listState = .default
                 return
             }
             let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
             switch result {
             case .success(let responce):
                 guard let meals = responce.meals else {
-                    listState = .empty
+                    state.listState = .empty
                     return
                 }
-                listState = .items(meals)
+                state.listState = .items(meals)
             case .failure(let error):
-                listState = .error(message: error.description)
+                state.listState = .error(message: error.description)
             }
         }
     }

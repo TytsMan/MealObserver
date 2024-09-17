@@ -10,23 +10,21 @@ import SwiftUI
 
 struct MealFilterView: View {
     @State private var viewModel: ViewModel
-    @State private var searchText = ""
     
     init(viewModel: ViewModel, searchText: String = "") {
         self.viewModel = viewModel
-        self.searchText = searchText
     }
     
     var body: some View {
         NavigationStack {
             ZStack {
-                switch viewModel.listState {
+                switch viewModel.state.listState {
                 case .default:
                     VStack {
-                        Image(systemName: "swirl.circle.righthalf.filled")
+                        Image(systemName: "square.and.pencil")
                             .frame(width: 36, height: 36)
                             .foregroundColor(.gray)
-                        Text("Now you can start searching category")
+                        Text("Now you can start searching a meal by category")
                             .font(.footnote)
                             .foregroundColor(.gray)
                     }
@@ -64,8 +62,8 @@ struct MealFilterView: View {
             }
             .navigationTitle("Meal Filter")
         }
-        .searchable(text: $searchText, prompt: "Filter meal by category")
-        .onChange(of: searchText) { _, newValue in
+        .searchable(text: $viewModel.state.searchText, prompt: "Filter meal by category")
+        .onChange(of: viewModel.state.searchText) { _, newValue in
             viewModel.searchTextDidChanged(searchText: newValue)
         }
     }
@@ -73,7 +71,12 @@ struct MealFilterView: View {
 
 #Preview {
     MealFilterView(
-        viewModel: .init(listState: .items([.mock1, .mock2, .mock3, .mock4, .mock5]
-            .map(Meal.addParagraphsToInstructions)))
+        viewModel: .init(
+            state: .init(
+                searchText: "",
+                listState: .items([.mock1, .mock2, .mock3, .mock4, .mock5]
+                    .map(Meal.addParagraphsToInstructions))
+            )
+        )
     )
 }
