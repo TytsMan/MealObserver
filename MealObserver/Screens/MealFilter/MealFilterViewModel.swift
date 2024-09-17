@@ -42,9 +42,7 @@ extension MealFilterView {
             self.searchTextInputSubject
                 .debounce(for: 0.3, scheduler: RunLoop.main)
                 .sink { [weak self] searchInput in
-                    Task { [weak self] in
-                        await self?.fetchItems(with: searchInput)
-                    }
+                    self?.fetchItems(with: searchInput)
                 }
                 .store(in: &cancellables)
         }
@@ -52,31 +50,33 @@ extension MealFilterView {
         func searchTextDidChanged(searchText: String) {
             state.searchText = searchText
             if searchText.isEmpty {
-                Task {
-                    await fetchItems(with: nil)
-                }
+                fetchItems(with: nil)
             } else {
                 searchTextInputSubject.send(searchText)
             }
         }
         
-        private func fetchItems(with searchText: String?) async {
+        private func fetchItems(with searchText: String?) {
             guard let searchText, !searchText.isEmpty else {
                 state.listState = .default
                 return
             }
-            let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
-            switch result {
-            case .success(let responce):
-                guard let meals = responce.meals?.compactMap({ $0 }) else {
-                    state.listState = .empty
-                    return
+            Task(priority: .userInitiated) {
+                let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
+                Task { @MainActor in
+                    switch result {
+                    case .success(let responce):
+                        guard let meals = responce.meals?.compactMap({ $0 }) else {
+                            state.listState = .empty
+                            return
+                        }
+                        let sortedMeals = meals
+                            .sorted(by: \.name)
+                        state.listState = .items(sortedMeals)
+                    case .failure(let error):
+                        state.listState = .error(message: error.description)
+                    }
                 }
-                let sortedMeals = meals
-                    .sorted(by: \.name)
-                state.listState = .items(sortedMeals)
-            case .failure(let error):
-                state.listState = .error(message: error.description)
             }
         }
     }

@@ -21,7 +21,6 @@ public final class NetworkingClient {
     }
     
     public func request<E: Endpoint>(endpoint: E) async -> Result<E.Response, NetworkingError> {
-        
         // Creating request
         let createRequestResult = createRequest(from: endpoint)
         if let failure = createRequestResult.failure {
