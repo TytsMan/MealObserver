@@ -23,3 +23,20 @@ struct MealDetailsService: MealDetailsServiceProtocol {
         return await network.request(endpoint: endpoint)
     }
 }
+
+#if DEBUG
+struct MealDetailsServiceSuccessMock: MealDetailsServiceProtocol {
+    func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
+        .success(
+            MealDetailsResponce(meals: [.mock5])
+        )
+    }
+}
+struct MealDetailsServiceFailureMock: MealDetailsServiceProtocol {
+    func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
+        .failure(
+            NetworkingError(statusCode: nil, message: "NetworkingError")
+        )
+    }
+}
+#endif
