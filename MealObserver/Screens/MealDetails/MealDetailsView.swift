@@ -17,6 +17,8 @@ struct MealDetailsView: View {
     var body: some View {
         NavigationStack {
             switch viewModel.state {
+            case .default:
+                Spacer()
             case .loading:
                 ProgressView()
             case .error(let message):
@@ -67,6 +69,9 @@ struct MealDetailsView: View {
                 }
                 .navigationTitle(meal.name)
             }
+        }
+        .onAppear {
+            viewModel.viewDidAppear()
         }
     }
 }

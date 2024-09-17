@@ -11,25 +11,33 @@ extension MealDetailsView {
     @Observable
     class ViewModel {
         enum State: Hashable {
+            case `default`
             case loading
             case error(message: String)
             case content(Meal)
         }
         
-        private var mealDetailsService: MealDetailsServiceProtocol
+        private let mealDetailsService: MealDetailsServiceProtocol
+        private let mealId: Meal.ID
         
-        var state: State
+        private(set) var state: State
         
         init(
-            mealDetailsService: MealDetailsServiceProtocol = MealDetailsServiceSuccessMock(),
+            mealDetailsService: MealDetailsServiceProtocol = MealDetailsServiceSuccessMock(mockMeal: .mock5),
+            state: State = .default,
             mealId: Meal.ID
         ) {
-            self.state = .loading
             self.mealDetailsService = mealDetailsService
+            self.state = state
+            self.mealId = mealId
+        }
+        
+        func viewDidAppear() {
             fetchMealDetails(mealId: mealId)
         }
         
         private func fetchMealDetails(mealId: Meal.ID) {
+            state = .loading
             Task {
                 let result = await mealDetailsService.mealDetails(id: mealId)
                 switch result {

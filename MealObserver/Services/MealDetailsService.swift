@@ -23,16 +23,46 @@ struct MealDetailsService: MealDetailsServiceProtocol {
 
 #if DEBUG
 struct MealDetailsServiceSuccessMock: MealDetailsServiceProtocol {
+    let mockMeal: Meal
+    let errorMessage: String
+    
+    init(
+        mockMeal: Meal = .mock5,
+        errorMessage: String = "Bad meal id."
+    ) {
+        self.mockMeal = mockMeal
+        self.errorMessage = errorMessage
+    }
+    
     func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
-        .success(
-            MealDetailsResponce(meals: [.mock5])
+        guard mockMeal.id == id else {
+            return .failure(
+                NetworkingError(
+                    statusCode: nil,
+                    message: errorMessage
+                )
+            )
+        }
+        return .success(
+            MealDetailsResponce(meals: [mockMeal])
         )
     }
 }
 struct MealDetailsServiceFailureMock: MealDetailsServiceProtocol {
+    let errorMessage: String
+    
+    init(
+        errorMessage: String = "Bad meal id."
+    ) {
+        self.errorMessage = errorMessage
+    }
+    
     func mealDetails(id: String) async -> Result<MealDetailsResponce, NetworkingError> {
         .failure(
-            NetworkingError(statusCode: nil, message: "NetworkingError")
+            NetworkingError(
+                statusCode: nil,
+                message: errorMessage
+            )
         )
     }
 }
