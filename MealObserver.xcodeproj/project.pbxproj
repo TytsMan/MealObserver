@@ -11,7 +11,6 @@
 		8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0512C9756BA0005C0E1 /* ContentView.swift */; };
 		8646C0542C9756BC0005C0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8646C0532C9756BC0005C0E1 /* Assets.xcassets */; };
 		8646C0582C9756BC0005C0E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8646C0572C9756BC0005C0E1 /* Preview Assets.xcassets */; };
-		8646C0622C9756BC0005C0E1 /* MealObserverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0612C9756BC0005C0E1 /* MealObserverTests.swift */; };
 		8646C06C2C9756BC0005C0E1 /* MealObserverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C06B2C9756BC0005C0E1 /* MealObserverUITests.swift */; };
 		8646C06E2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C06D2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift */; };
 		8646C07C2C9757A00005C0E1 /* Networking in Resources */ = {isa = PBXBuildFile; fileRef = 8646C07A2C9757A00005C0E1 /* Networking */; };
@@ -59,7 +58,6 @@
 		8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MealObserver.entitlements; sourceTree = "<group>"; };
 		8646C0572C9756BC0005C0E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8646C05D2C9756BC0005C0E1 /* MealObserverTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealObserverTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8646C0612C9756BC0005C0E1 /* MealObserverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverTests.swift; sourceTree = "<group>"; };
 		8646C0672C9756BC0005C0E1 /* MealObserverUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MealObserverUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8646C06B2C9756BC0005C0E1 /* MealObserverUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverUITests.swift; sourceTree = "<group>"; };
 		8646C06D2C9756BC0005C0E1 /* MealObserverUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -158,7 +156,6 @@
 		8646C0602C9756BC0005C0E1 /* MealObserverTests */ = {
 			isa = PBXGroup;
 			children = (
-				8646C0612C9756BC0005C0E1 /* MealObserverTests.swift */,
 			);
 			path = MealObserverTests;
 			sourceTree = "<group>";
@@ -473,7 +470,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8646C0622C9756BC0005C0E1 /* MealObserverTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
