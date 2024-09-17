@@ -14,10 +14,11 @@ extension MealFilterView {
     @Observable
     final class ViewModel {
         
-        enum ListState {
+        enum ListState: Hashable {
             case `default`
             case loading
             case items([Meal])
+            case empty
             case error(message: String)
         }
         
@@ -64,7 +65,11 @@ extension MealFilterView {
             let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
             switch result {
             case .success(let responce):
-                listState = .items(responce.meals)
+                guard var meals = responce.meals else {
+                    listState = .empty
+                    return
+                }
+                listState = .items(meals)
             case .failure(let error):
                 listState = .error(message: error.description)
             }

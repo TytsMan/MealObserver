@@ -37,11 +37,20 @@ struct MealFilterView: View {
                     List {
                         ForEach(meals, id: \.self) { meal in
                             NavigationLink {
-                                Text(meal.title)
+                                MealDetailsView(viewModel: .init(mealId: meal.id))
                             } label: {
                                 MealView(meal: meal)
                             }
                         }
+                    }
+                case .empty:
+                    VStack {
+                        Image(systemName: "swirl.circle.righthalf.filled")
+                            .frame(width: 36, height: 36)
+                            .foregroundColor(.gray)
+                        Text("You got nothing")
+                            .font(.footnote)
+                            .foregroundColor(.gray)
                     }
                 case .error(let message):
                     VStack {
@@ -54,7 +63,7 @@ struct MealFilterView: View {
                     }
                 }
             }
-            .navigationTitle("My Title")
+            .navigationTitle("Meal Filter")
             
         }
         .searchable(text: $searchText, prompt: "Filter meal by category")
