@@ -15,6 +15,7 @@ struct MealObserverApp: App {
     var body: some Scene {
         WindowGroup {
             Self.screenFactory.createMealFilterView()
+                .environmentObject(Self.screenFactory)
         }
     }
 }

@@ -3,7 +3,7 @@
 
 import Foundation
 
-public class NetworkingClient {
+public final class NetworkingClient {
     
     private let config: Config
     

@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class ScreenFactory {
+final class ScreenFactory: ObservableObject {
     private let dependencies: AppDependencies
     
     init(dependencies: AppDependencies) {

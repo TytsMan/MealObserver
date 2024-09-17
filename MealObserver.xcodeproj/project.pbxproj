@@ -24,7 +24,6 @@
 		8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */; };
 		8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0972C97A0660005C0E1 /* MealFilterView.swift */; };
 		8646C09A2C97A06E0005C0E1 /* MealFilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */; };
-		8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */; };
 		8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A22C97CE330005C0E1 /* MealView.swift */; };
 		8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */; };
 		8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */; };
@@ -75,7 +74,6 @@
 		8646C0932C979ACC0005C0E1 /* MealDetailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsService.swift; sourceTree = "<group>"; };
 		8646C0972C97A0660005C0E1 /* MealFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterView.swift; sourceTree = "<group>"; };
 		8646C0992C97A06E0005C0E1 /* MealFilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealFilterViewModel.swift; sourceTree = "<group>"; };
-		8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyInjectionContainer.swift; sourceTree = "<group>"; };
 		8646C0A22C97CE330005C0E1 /* MealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealView.swift; sourceTree = "<group>"; };
 		8646C0A82C9880EB0005C0E1 /* MealDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsView.swift; sourceTree = "<group>"; };
 		8646C0AA2C988D8A0005C0E1 /* MealDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -256,7 +254,6 @@
 			isa = PBXGroup;
 			children = (
 				8646C09C2C97AA770005C0E1 /* PropertyWrappers */,
-				8646C09F2C97B52A0005C0E1 /* DependencyInjectionContainer.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -475,7 +472,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8646C0A02C97B52A0005C0E1 /* DependencyInjectionContainer.swift in Sources */,
 				8646C0842C9766C90005C0E1 /* Meal.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
 				8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */,

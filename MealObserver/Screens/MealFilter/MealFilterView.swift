@@ -9,6 +9,7 @@ import Networking
 import SwiftUI
 
 struct MealFilterView: View {
+    @EnvironmentObject var screenFactory: ScreenFactory
     @State private var viewModel: ViewModel
     
     init(viewModel: ViewModel, searchText: String = "") {
@@ -31,7 +32,7 @@ struct MealFilterView: View {
                     List {
                         ForEach(meals, id: \.self) { meal in
                             NavigationLink {
-                                MealDetailsView(viewModel: .init(mealId: meal.id))
+                                screenFactory.createMealDetailsView(mealId: meal.id)
                             } label: {
                                 MealView(meal: meal)
                             }
