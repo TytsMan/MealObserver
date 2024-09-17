@@ -17,7 +17,7 @@ struct Meal: Hashable, Identifiable, Decodable {
     }
     
     let id: ID
-    let title: String
+    let name: String
     let drinkAlternate: String?
     let category: String?
     let area: String?
@@ -90,7 +90,7 @@ struct Meal: Hashable, Identifiable, Decodable {
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(String.self, forKey: .idMeal)
-        self.title = try container.decode(String.self, forKey: .strMeal)
+        self.name = try container.decode(String.self, forKey: .strMeal)
         self.drinkAlternate = try container.decodeIfPresent(String.self, forKey: .strDrinkAlternate)
         self.category = try container.decodeIfPresent(String.self, forKey: .strCategory)
         self.area = try container.decodeIfPresent(String.self, forKey: .strArea)
@@ -188,7 +188,7 @@ struct Meal: Hashable, Identifiable, Decodable {
     
     init(
         id: ID,
-        title: String,
+        name: String,
         drinkAlternate: String? = nil,
         category: String? = nil,
         area: String? = nil,
@@ -203,7 +203,7 @@ struct Meal: Hashable, Identifiable, Decodable {
         ingredients: [Igredient]? = nil
     ) {
         self.id = id
-        self.title = title
+        self.name = name
         self.drinkAlternate = drinkAlternate
         self.category = category
         self.area = area
@@ -222,28 +222,65 @@ struct Meal: Hashable, Identifiable, Decodable {
 private extension Meal.Igredient {
     init?(name: String?, measure: String?) {
         guard let name, let measure else { return nil }
-
+        
         self.name = name
         self.measure = measure
     }
 }
 
+#if DEBUG
 extension Meal {
     
     static var mock1: Self {
-        Meal(id: "1", title: "Strawberry Rhubarb Pie", thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg")!)
+        Meal(
+            id: "1",
+            name: "Strawberry Rhubarb Pie",
+            thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/178z5o1585514569.jpg")!
+        )
     }
     
     static var mock2: Self {
-        Meal(id: "2", title: "Sugar Pie", thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/yrstur1511816601.jpg")!)
+        Meal(
+            id: "2",
+            name: "Sugar Pie",
+            thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/yrstur1511816601.jpg")!
+        )
     }
     
     static var mock3: Self {
-        Meal(id: "3", title: "Summer Pudding", thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg")!)
+        Meal(
+            id: "3",
+            name: "Summer Pudding",
+            thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/rsqwus1511640214.jpg")!
+        )
     }
     
     static var mock4: Self {
-        Meal(id: "4", title: "Tarte Tatin", thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/ryspuw1511786688.jpg")!)
+        Meal(
+            id: "4",
+            name: "Tarte Tatin",
+            thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/ryspuw1511786688.jpg")!
+        )
     }
     
+    static var mock5: Self {
+        Meal(
+            id: "52768",
+            name: "Apple Frangipan Tart",
+            instructions: "Preheat the oven to 200C/180C Fan/Gas 6.\r\nPut the biscuits in a large re-sealable freezer bag and bash with a rolling pin into fine crumbs. Melt the butter in a small pan, then add the biscuit crumbs and stir until coated with butter. Tip into the tart tin and, using the back of a spoon, press over the base and sides of the tin to give an even layer. Chill in the fridge while you make the filling.\r\nCream together the butter and sugar until light and fluffy. You can do this in a food processor if you have one. Process for 2-3 minutes. Mix in the eggs, then add the ground almonds and almond extract and blend until well combined.\r\nPeel the apples, and cut thin slices of apple. Do this at the last minute to prevent the apple going brown. Arrange the slices over the biscuit base. Spread the frangipane filling evenly on top. Level the surface and sprinkle with the flaked almonds.\r\nBake for 20-25 minutes until golden-brown and set.\r\nRemove from the oven and leave to cool for 15 minutes. Remove the sides of the tin. An easy way to do this is to stand the tin on a can of beans and push down gently on the edges of the tin.\r\nTransfer the tart, with the tin base attached, to a serving plate. Serve warm with cream, crème fraiche or ice cream.",
+            thumbnailUrl: URL(string: "https://www.themealdb.com/images/media/meals/wxywrq1468235067.jpg")!,
+            ingredients: [
+                .init(name: "digestive biscuits", measure: "175g/6oz"),
+                .init(name: "butter", measure: "75g/3oz"),
+                .init(name: "Bramley apples", measure: "200g/7oz"),
+                .init(name: "butter, softened", measure: "75g/3oz"),
+                .init(name: "caster sugar", measure: "75g/3oz"),
+                .init(name: "free-range eggs, beaten", measure: "2"),
+                .init(name: "ground almonds", measure: "75g/3oz"),
+                .init(name: "almond extract", measure: "1 tsp"),
+                .init(name: "flaked almonds", measure: "50g/1¾oz")
+            ]
+        )
+    }
 }
+#endif

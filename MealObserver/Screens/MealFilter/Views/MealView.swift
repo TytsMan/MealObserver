@@ -20,7 +20,7 @@ struct MealView: View {
             .frame(width: 64, height: 64)
             .cornerRadius(8)
             
-            Text(meal.title)
+            Text(meal.name)
                 .font(.headline)
             
             Spacer()

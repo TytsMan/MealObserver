@@ -31,7 +31,7 @@ struct MealFilterServiceSuccessMock: MealFilterServiceProtocol {
         .success(
             MealFilterResponce(
                 meals: [
-                    .mock1, .mock2, .mock3, .mock4
+                    .mock1, .mock2, .mock3, .mock4, .mock5
                 ]
             )
         )
