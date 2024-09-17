@@ -61,6 +61,7 @@ extension MealFilterView {
                 state.listState = .default
                 return
             }
+            state.listState = .loading
             Task(priority: .userInitiated) {
                 let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
                 Task { @MainActor in
