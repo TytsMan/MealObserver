@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Meal: Hashable, Identifiable, Decodable {
+struct Meal: Hashable, Decodable, Identifiable {
     
     typealias ID = String
     
@@ -185,6 +185,18 @@ struct Meal: Hashable, Identifiable, Decodable {
             ),
         ].compactMap { $0 }
     }
+}
+
+private extension Meal.Igredient {
+    init?(name: String?, measure: String?) {
+        guard let name, let measure else { return nil }
+        
+        self.name = name
+        self.measure = measure
+    }
+}
+
+extension Meal {
     
     init(
         id: ID,
@@ -217,14 +229,28 @@ struct Meal: Hashable, Identifiable, Decodable {
         self.dateModified = dateModified
         self.ingredients = ingredients
     }
-}
-
-private extension Meal.Igredient {
-    init?(name: String?, measure: String?) {
-        guard let name, let measure else { return nil }
+    
+    static func addParagraphsToInstructions(meal: Meal) -> Meal {
+        guard let instructions = meal.instructions else { return meal }
         
-        self.name = name
-        self.measure = measure
+        let instructionsWithParagraphs = "\t" + instructions.replacingOccurrences(of: "\n", with: "\n\t")
+        
+        return Meal(
+            id: meal.id,
+            name: meal.name,
+            drinkAlternate: meal.drinkAlternate,
+            category: meal.category,
+            area: meal.area,
+            instructions: instructionsWithParagraphs,
+            thumbnailUrl: meal.thumbnailUrl,
+            tags: meal.tags,
+            youtubeURL: meal.youtubeURL,
+            source: meal.source,
+            imageSource: meal.imageSource,
+            creativeCommonsConfirmed: meal.creativeCommonsConfirmed,
+            dateModified: meal.dateModified,
+            ingredients: meal.ingredients
+        )
     }
 }
 

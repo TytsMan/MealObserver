@@ -39,6 +39,11 @@ extension MealFilterView {
                     }
                 }
                 .store(in: &cancellables)
+            
+#if DEBUG
+            listState = .items([.mock1, .mock2, .mock3, .mock4, .mock5]
+                .map(Meal.addParagraphsToInstructions))
+#endif
         }
         
         func searchTextDidChanged(searchText: String) {
