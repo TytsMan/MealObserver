@@ -12,26 +12,29 @@ import Networking
 @testable import MealObserver
 
 final class MealFilterViewModelSpec: AsyncSpec {
+    typealias ViewModel = MealFilterView.ViewModel
+    typealias State = ViewModel.State
+    
     override class func spec() {
         describe("Testing MealFilterViewModel") {
             context("Check initial State") {
-                var viewModel: MealFilterView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealFilterView.ViewModel(
+                    viewModel = ViewModel(
                         mealFilterService: MealFilterServiceSuccessMock()
                     )
                 }
                 
                 it("init view model") {
                     expect(viewModel.state)
-                        .to(equal(MealFilterView.ViewModel.State.default))
+                        .to(equal(State.default))
                 }
             }
             
             context("searchTextDidChanged") {
-                var viewModel: MealFilterView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealFilterView.ViewModel(
+                    viewModel = ViewModel(
                         mealFilterService: MealFilterServiceSuccessMock()
                     )
                 }
@@ -47,9 +50,9 @@ final class MealFilterViewModelSpec: AsyncSpec {
             
             context("make a succeful request") {
                 let mockItems: [Meal] = [.mock1, .mock2, .mock3, .mock4, .mock5]
-                var viewModel: MealFilterView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealFilterView.ViewModel(
+                    viewModel = ViewModel(
                         mealFilterService: MealFilterServiceSuccessMock(
                             mockItems: mockItems
                         )
@@ -57,31 +60,25 @@ final class MealFilterViewModelSpec: AsyncSpec {
                 }
                 
                 it("changeText") {
-                    expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.default))
-
                     viewModel.searchTextDidChanged(searchText: "Dessert")
 
-                    try await Task.sleep(for: .milliseconds(500))
+                    try await Task.sleep(for: .milliseconds(100))
                     expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.items(mockItems)))
+                        .to(equal(State.ListState.items(mockItems)))
                 }
             }
             
             context("make a failure request") {
                 let failureMessage: String = "Bad request."
                 
-                var viewModel: MealFilterView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealFilterView.ViewModel(
+                    viewModel = ViewModel(
                         mealFilterService: MealFilterServiceFailureMock(failureMessage: failureMessage)
                     )
                 }
                 
                 it("changeText") {
-                    expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.default))
-
                     viewModel.searchTextDidChanged(searchText: "Dessert")
 
                     let error = NetworkingError(
@@ -90,7 +87,7 @@ final class MealFilterViewModelSpec: AsyncSpec {
                     )
                     try await Task.sleep(for: .milliseconds(500))
                     expect(viewModel.state.listState)
-                        .to(equal(MealFilterView.ViewModel.State.ListState.error(message: error.description)))
+                        .to(equal(State.ListState.error(message: error.description)))
                 }
             }
         }

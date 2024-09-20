@@ -12,15 +12,18 @@ import Networking
 @testable import MealObserver
 
 final class MealDetailsViewModelSpec: AsyncSpec {
+    typealias ViewModel = MealDetailsView.ViewModel
+    typealias State = ViewModel.State
+    
     override class func spec() {
         describe("Testing MealFilterViewModel") {
             let mockMeal: Meal = .mock5
             let errorMessage = "Bad meal id."
             
             context("Check inital state") {
-                var viewModel: MealDetailsView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealDetailsView.ViewModel(
+                    viewModel = ViewModel(
                         mealDetailsService: MealDetailsServiceSuccessMock(
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
@@ -31,14 +34,14 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                 
                 it("view did appear") {
                     expect(viewModel.state)
-                        .to(equal(MealDetailsView.ViewModel.State.default))
+                        .to(equal(State.default))
                 }
             }
             
             context("make a succeful request") {
-                var viewModel: MealDetailsView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealDetailsView.ViewModel(
+                    viewModel = ViewModel(
                         mealDetailsService: MealDetailsServiceSuccessMock(
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
@@ -53,14 +56,14 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                     try await Task.sleep(for: .milliseconds(100))
                     let fetchedMeal = Meal.addParagraphsToInstructions(meal: mockMeal)
                     expect(viewModel.state)
-                        .to(equal(MealDetailsView.ViewModel.State.content(fetchedMeal)))
+                        .to(equal(State.content(fetchedMeal)))
                 }
             }
             
             context("make a bad id request") {
-                var viewModel: MealDetailsView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealDetailsView.ViewModel(
+                    viewModel = ViewModel(
                         mealDetailsService: MealDetailsServiceSuccessMock(
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
@@ -78,14 +81,14 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                         message: errorMessage
                     )
                     expect(viewModel.state)
-                        .to(equal(MealDetailsView.ViewModel.State.error(message: error.description)))
+                        .to(equal(State.error(message: error.description)))
                 }
             }
             
             context("make a failure request") {
-                var viewModel: MealDetailsView.ViewModel!
+                var viewModel: ViewModel!
                 beforeEach {
-                    viewModel = MealDetailsView.ViewModel(
+                    viewModel = ViewModel(
                         mealDetailsService: MealDetailsServiceFailureMock(
                             errorMessage: errorMessage
                         ),
@@ -102,7 +105,7 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                         message: errorMessage
                     )
                     expect(viewModel.state)
-                        .to(equal(MealDetailsView.ViewModel.State.error(message: error.description)))
+                        .to(equal(State.error(message: error.description)))
                 }
             }
         }
