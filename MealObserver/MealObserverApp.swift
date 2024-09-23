@@ -13,11 +13,34 @@ let dependencies = AppDependencies()
 struct MealObserverApp: App {
     private let screenFactory = ScreenFactory(dependencies: dependencies)
     
+    var appState: AppState = .init()
+    
     var body: some Scene {
         WindowGroup {
-            screenFactory.createMealFilterView()
+            RootView()
                 .environmentObject(dependencies)
                 .environmentObject(screenFactory)
+                .environment(appState)
+        }
+    }
+}
+
+struct RootView: View {
+    @EnvironmentObject var screenFactory: ScreenFactory
+    @Environment(AppState.self) var appState
+    
+    var body: some View {
+        @Bindable var appState = appState
+        NavigationStack(path: $appState.navigationPath) {
+            screenFactory.createMealFilterView()
+                .navigationDestination(for: NavigationDestination.self) { dest in
+                    switch dest {
+                    case let .details(mealId):
+                        screenFactory.createMealDetailsView(mealId: mealId)
+                    default:
+                        Text("Destination is not reachable!")
+                    }
+                }
         }
     }
 }

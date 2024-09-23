@@ -5,7 +5,6 @@
 //  Created by divan on 9/15/24.
 //
 
-import Networking
 import SwiftUI
 
 struct MealFilterView: View {
@@ -17,43 +16,39 @@ struct MealFilterView: View {
     }
     
     var body: some View {
-        NavigationStack {
-            ZStack {
-                switch viewModel.state.listState {
-                case .default:
-                    PlaceholderView(
-                        imageName: "square.and.pencil",
-                        title: "Now you can start searching a meal by category".localized,
-                        tintColor: .gray
-                    )
-                case .loading:
-                    ProgressView()
-                case .items(let meals):
-                    List {
-                        ForEach(meals, id: \.self) { meal in
-                            NavigationLink {
-                                screenFactory.createMealDetailsView(mealId: meal.id)
-                            } label: {
-                                MealView(meal: meal)
-                            }
+        ZStack {
+            switch viewModel.state.listState {
+            case .default:
+                PlaceholderView(
+                    imageName: "square.and.pencil",
+                    title: "Now you can start searching a meal by category".localized,
+                    tintColor: .gray
+                )
+            case .loading:
+                ProgressView()
+            case .items(let meals):
+                List {
+                    ForEach(meals, id: \.self) { meal in
+                        NavigationLink(value: NavigationDestination.details(id: meal.id)) {
+                            MealView(meal: meal)
                         }
                     }
-                case .empty:
-                    PlaceholderView(
-                        imageName: "swirl.circle.righthalf.filled",
-                        title: "You got nothing".localized,
-                        tintColor: .gray
-                    )
-                case .error(let message):
-                    PlaceholderView(
-                        imageName: "exclamationmark.triangle.fill",
-                        title: message.localized,
-                        tintColor: .red
-                    )
                 }
+            case .empty:
+                PlaceholderView(
+                    imageName: "swirl.circle.righthalf.filled",
+                    title: "You got nothing".localized,
+                    tintColor: .gray
+                )
+            case .error(let message):
+                PlaceholderView(
+                    imageName: "exclamationmark.triangle.fill",
+                    title: message.localized,
+                    tintColor: .red
+                )
             }
-            .navigationTitle("Meal Filter")
         }
+        .navigationTitle("Meal Filter")
         .searchable(text: $viewModel.state.searchText, prompt: "Filter meal by category".localized)
         .onChange(of: viewModel.state.searchText) { _, newValue in
             viewModel.searchTextDidChanged(searchText: newValue)

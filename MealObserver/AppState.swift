@@ -18,6 +18,14 @@ class AppState {
             navigationPath.append(destination)
         }
     }
+    
+    func pop() {
+        navigationPath.removeLast()
+    }
+    
+    func popToRoot() {
+        navigationPath = .init()
+    }
 }
 
 enum NavigationDestination: Hashable {

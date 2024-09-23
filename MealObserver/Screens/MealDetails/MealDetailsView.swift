@@ -15,7 +15,7 @@ struct MealDetailsView: View {
     }
     
     var body: some View {
-        NavigationStack {
+        ZStack {
             switch viewModel.state {
             case .default:
                 Spacer()
@@ -69,7 +69,7 @@ struct MealDetailsView: View {
                                 Text("\(ingredient.measure)")
                             }
                         }
-                    }.padding()
+                    }.padding(.horizontal, 30)
                 }
                 Spacer()
             }
