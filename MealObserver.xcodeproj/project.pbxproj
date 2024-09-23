@@ -144,8 +144,8 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				867F7D812CA0F25500C86F4E /* Common */,
 				867F7D802CA0EC5300C86F4E /* Resources */,
-				865D57F12C9A29BF00AAEB67 /* Extensions */,
 				8646C0A42C97D9370005C0E1 /* Protocols */,
 				8646C0952C979F9A0005C0E1 /* Screens */,
 				8646C0852C9773750005C0E1 /* Services */,
@@ -314,6 +314,14 @@
 				8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		867F7D812CA0F25500C86F4E /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				865D57F12C9A29BF00AAEB67 /* Extensions */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
