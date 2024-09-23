@@ -11,6 +11,8 @@ import SwiftUI
 class AppState {
     var navigationPath: NavigationPath = .init()
     
+    // MARK: Navigation
+    
     func navigate(to destination: NavigationDestination) {
         if destination == .search {
             navigationPath = .init()
