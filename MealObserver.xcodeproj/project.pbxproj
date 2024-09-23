@@ -36,6 +36,7 @@
 		865D57EB2C9A1EC600AAEB67 /* ScreenFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */; };
 		865D57F02C9A283300AAEB67 /* Localizer in Frameworks */ = {isa = PBXBuildFile; productRef = 865D57EF2C9A283300AAEB67 /* Localizer */; };
 		865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 865D57F22C9A29E100AAEB67 /* String+localization.swift */; };
+		867F7D832CA0F27E00C86F4E /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867F7D822CA0F27E00C86F4E /* AppState.swift */; };
 		8681DC772C9A37AC00C0AF3E /* Sequence+sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,7 @@
 		865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenFactory.swift; sourceTree = "<group>"; };
 		865D57EE2C9A269000AAEB67 /* Localizer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Localizer; sourceTree = "<group>"; };
 		865D57F22C9A29E100AAEB67 /* String+localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+localization.swift"; sourceTree = "<group>"; };
+		867F7D822CA0F27E00C86F4E /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -154,6 +156,7 @@
 				865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */,
 				865D57E82C9A1EB100AAEB67 /* AppDependencies.swift */,
 				8646C0512C9756BA0005C0E1 /* ContentView.swift */,
+				867F7D822CA0F27E00C86F4E /* AppState.swift */,
 			);
 			path = MealObserver;
 			sourceTree = "<group>";
@@ -502,6 +505,7 @@
 				8646C0912C977BF40005C0E1 /* MealDetailsResponce.swift in Sources */,
 				865D57EB2C9A1EC600AAEB67 /* ScreenFactory.swift in Sources */,
 				865D57E92C9A1EB100AAEB67 /* AppDependencies.swift in Sources */,
+				867F7D832CA0F27E00C86F4E /* AppState.swift in Sources */,
 				8646C0A92C9880EB0005C0E1 /* MealDetailsView.swift in Sources */,
 				8646C0942C979ACC0005C0E1 /* MealDetailsService.swift in Sources */,
 				8646C09A2C97A06E0005C0E1 /* MealFilterViewModel.swift in Sources */,
