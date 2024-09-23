@@ -144,6 +144,7 @@
 		8646C04E2C9756BA0005C0E1 /* MealObserver */ = {
 			isa = PBXGroup;
 			children = (
+				867F7D802CA0EC5300C86F4E /* Resources */,
 				865D57F12C9A29BF00AAEB67 /* Extensions */,
 				8646C0A42C97D9370005C0E1 /* Protocols */,
 				8646C0952C979F9A0005C0E1 /* Screens */,
@@ -153,9 +154,6 @@
 				865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */,
 				865D57E82C9A1EB100AAEB67 /* AppDependencies.swift */,
 				8646C0512C9756BA0005C0E1 /* ContentView.swift */,
-				8646C0532C9756BC0005C0E1 /* Assets.xcassets */,
-				8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */,
-				8646C0562C9756BC0005C0E1 /* Preview Content */,
 			);
 			path = MealObserver;
 			sourceTree = "<group>";
@@ -306,6 +304,16 @@
 				8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		867F7D802CA0EC5300C86F4E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8646C0562C9756BC0005C0E1 /* Preview Content */,
+				8646C0532C9756BC0005C0E1 /* Assets.xcassets */,
+				8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -650,10 +658,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MealObserver/MealObserver.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MealObserver/Resources/MealObserver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -687,10 +695,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = MealObserver/MealObserver.entitlements;
+				CODE_SIGN_ENTITLEMENTS = MealObserver/Resources/MealObserver.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"MealObserver/Resources/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
