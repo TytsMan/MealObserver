@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct MealFilterView: View {
-    @EnvironmentObject var screenFactory: ScreenFactory
     @State private var viewModel: ViewModel
     
     init(viewModel: ViewModel, searchText: String = "") {

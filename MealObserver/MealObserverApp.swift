@@ -18,7 +18,6 @@ struct MealObserverApp: App {
     var body: some Scene {
         WindowGroup {
             RootView()
-                .environmentObject(dependencies)
                 .environmentObject(screenFactory)
                 .environment(appState)
         }
