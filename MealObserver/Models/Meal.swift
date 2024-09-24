@@ -101,90 +101,110 @@ struct Meal: Hashable, Decodable, Identifiable {
         self.imageSource = try container.decodeIfPresent(String.self, forKey: .strImageSource)
         self.creativeCommonsConfirmed = try container.decodeIfPresent(String.self, forKey: .strCreativeCommonsConfirmed)
         self.dateModified = try container.decodeIfPresent(Date.self, forKey: .dateModified)
-        ingredients = [
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient1),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure1)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient2),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure2)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient3),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure3)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient4),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure4)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient5),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure5)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient6),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure6)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient7),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure7)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient8),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure8)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient9),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure9)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient10),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure10)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient11),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure11)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient12),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure12)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient13),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure13)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient14),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure14)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient15),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure15)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient16),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure16)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient17),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure17)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient18),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure18)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient19),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure19)
-            ),
-            Igredient(
-                name: try container.decodeIfPresent(String.self, forKey: .strIngredient20),
-                measure: try container.decodeIfPresent(String.self, forKey: .strMeasure20)
-            ),
+        let ingredient1 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient1),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure1)
+        )
+        let ingredient2 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient2),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure2)
+        )
+        let ingredient3 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient3),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure3)
+        )
+        let ingredient4 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient4),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure4)
+        )
+        let ingredient5 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient5),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure5)
+        )
+        let ingredient6 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient6),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure6)
+        )
+        let ingredient7 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient7),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure7)
+        )
+        let ingredient8 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient8),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure8)
+        )
+        let ingredient9 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient9),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure9)
+        )
+        let ingredient10 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient10),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure10)
+        )
+        let ingredient11 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient11),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure11)
+        )
+        let ingredient12 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient12),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure12)
+        )
+        let ingredient13 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient13),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure13)
+        )
+        let ingredient14 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient14),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure14)
+        )
+        let ingredient15 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient15),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure15)
+        )
+        let ingredient16 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient16),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure16)
+        )
+        let ingredient17 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient17),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure17)
+        )
+        let ingredient18 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient18),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure18)
+        )
+        let ingredient19 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient19),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure19)
+        )
+        let ingredient20 = Igredient(
+            name: try container.decodeIfPresent(String.self, forKey: .strIngredient20),
+            measure: try container.decodeIfPresent(String.self, forKey: .strMeasure20)
+        )
+        
+        self.ingredients = [
+            ingredient1,
+            ingredient2,
+            ingredient3,
+            ingredient4,
+            ingredient5,
+            ingredient6,
+            ingredient7,
+            ingredient8,
+            ingredient9,
+            ingredient10,
+            ingredient11,
+            ingredient12,
+            ingredient13,
+            ingredient14,
+            ingredient15,
+            ingredient16,
+            ingredient17,
+            ingredient18,
+            ingredient19,
+            ingredient20,
         ]
             .compactMap { $0 }
-            .filter(!\.isEmpty)
     }
     // swiftlint:enable function_body_length
 }
