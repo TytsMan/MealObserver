@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MealFilterView: View {
+    @Environment(AppState.self) var appState
     @State private var viewModel: ViewModel
     
     init(viewModel: ViewModel, searchText: String = "") {
@@ -28,8 +29,14 @@ struct MealFilterView: View {
             case .items(let meals):
                 List {
                     ForEach(meals, id: \.self) { meal in
-                        NavigationLink(value: NavigationDestination.details(id: meal.id)) {
-                            MealView(meal: meal)
+                        Button {
+                            appState.navigate(to: .details(id: meal.id))
+                        } label: {
+                            HStack {
+                                MealView(meal: meal)
+                                Image(systemName: "chevron.right")
+                                    .tint(.gray)
+                            }
                         }
                     }
                 }

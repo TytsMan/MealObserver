@@ -60,6 +60,27 @@ public enum NetworkingError: Error, Equatable {
         self = .internalStatus(status: .unknown, message: message)
     }
     
+    var code: Int {
+        switch self {
+        case .internalStatus(let status, _):
+            return status.code
+        case .informational(let status, _):
+            return status.code
+        case .success(let status, _):
+            return status.code
+        case .redirection(let status, _):
+            return status.code
+        case .clientError(let status, _):
+            return status.code
+        case .serverError(let status, _):
+            return status.code
+        case .nsurlError(let status, _):
+            return status.code
+        }
+    }
+}
+
+extension NetworkingError: CustomStringConvertible {
     public var description: String {
         switch self {
         case .internalStatus(let status, let message):
@@ -78,23 +99,9 @@ public enum NetworkingError: Error, Equatable {
             return "NSURLError Status: \(status), \(message ?? "")"
         }
     }
-    
-    var code: Int {
-        switch self {
-        case .internalStatus(let status, _):
-            return status.code
-        case .informational(let status, _):
-            return status.code
-        case .success(let status, _):
-            return status.code
-        case .redirection(let status, _):
-            return status.code
-        case .clientError(let status, _):
-            return status.code
-        case .serverError(let status, _):
-            return status.code
-        case .nsurlError(let status, _):
-            return status.code
-        }
+}
+extension NetworkingError: LocalizedError {
+    public var errorDescription: String? {
+        description
     }
 }

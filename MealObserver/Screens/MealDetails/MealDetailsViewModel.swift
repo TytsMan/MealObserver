@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Networking
 
 extension MealDetailsView {
     @Observable
@@ -17,17 +18,17 @@ extension MealDetailsView {
             case content(Meal)
         }
         
-        private let mealDetailsService: MealDetailsServiceProtocol
+        private let mealRepository: MealDetailRepository
         private let mealId: Meal.ID
         
         private(set) var state: State
         
         init(
-            mealDetailsService: MealDetailsServiceProtocol = MealDetailsServiceSuccessMock(mockMeal: .mock5),
+            mealRepository: MealDetailRepository = RemoteMealRepository.mock,
             state: State = .default,
             mealId: Meal.ID
         ) {
-            self.mealDetailsService = mealDetailsService
+            self.mealRepository = mealRepository
             self.state = state
             self.mealId = mealId
         }
@@ -38,18 +39,20 @@ extension MealDetailsView {
         
         private func fetchMealDetails(mealId: Meal.ID) {
             state = .loading
-            Task(priority: .userInitiated) {
-                let result = await mealDetailsService.mealDetails(id: mealId)
-                Task { @MainActor in
+            Task(priority: .background) { [weak self] in
+                guard let self else { return }
+                let result = await mealRepository.mealDetails(id: mealId)
+                Task { @MainActor [weak self] in
+                    guard let self else { return }
                     switch result {
-                    case .success(let responce):
-                        guard let meal = responce.meals?.compactMap({ $0 }).first else {
+                    case .success(let meal):
+                        guard let meal else {
                             state = .error(message: "Bad meal id")
                             return
                         }
                         state = .content(Meal.addParagraphsToInstructions(meal: meal))
                     case .failure(let error):
-                        state = .error(message: error.description)
+                        state = .error(message: error.localizedDescription)
                     }
                 } 
             }

@@ -27,20 +27,20 @@ extension MealFilterView {
             var listState: ListState
         }
         
-        private var mealFilterService: MealFilterServiceProtocol
+        private var mealRepository: MealFilterRepository
         private var searchTextInputSubject = PassthroughSubject<String?, Never>()
         private var cancellables = Set<AnyCancellable>()
         
         var state: State
         
         init(
-            mealFilterService: MealFilterServiceProtocol = MealFilterServiceSuccessMock(),
+            mealRepository: MealFilterRepository = RemoteMealRepository.mock,
             state: State = .default
         ) {
-            self.mealFilterService = mealFilterService
+            self.mealRepository = mealRepository
             self.state = state
             self.searchTextInputSubject
-                .debounce(for: 0.3, scheduler: RunLoop.main)
+                .debounce(for: 0.5, scheduler: RunLoop.main)
                 .sink { [weak self] searchInput in
                     self?.fetchItems(with: searchInput)
                 }
@@ -62,12 +62,15 @@ extension MealFilterView {
                 return
             }
             state.listState = .loading
-            Task(priority: .userInitiated) {
-                let result = await mealFilterService.filterMeals(query: searchText, filterType: .category)
-                Task { @MainActor in
+            Task(priority: .background) { [weak self] in
+                guard let self else { return }
+                let result = await mealRepository.filterMeals(query: searchText)
+                Task { @MainActor [weak self] in
+                    guard let self else { return }
                     switch result {
-                    case .success(let responce):
-                        guard let meals = responce.meals?.compactMap({ $0 }) else {
+                    case .success(let meals):
+                        let meals = meals.compactMap({ $0 })
+                        guard !meals.isEmpty else {
                             state.listState = .empty
                             return
                         }
@@ -75,7 +78,7 @@ extension MealFilterView {
                             .sorted(by: \.name)
                         state.listState = .items(sortedMeals)
                     case .failure(let error):
-                        state.listState = .error(message: error.description)
+                        state.listState = .error(message: error.localizedDescription)
                     }
                 }
             }

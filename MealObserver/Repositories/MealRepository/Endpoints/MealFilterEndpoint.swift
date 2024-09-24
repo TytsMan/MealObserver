@@ -1,5 +1,5 @@
 //
-//  FilterMealEndpoint.swift
+//  MealFilterEndpoint.swift
 //  MealObserver
 //
 //  Created by divan on 9/15/24.
@@ -14,19 +14,19 @@ enum FilterType {
     case area
 }
 
-struct FilterMealEndpoint {
+struct MealFilterEndpoint {
     typealias Query = String
     
     private let query: Query
     private let filterType: FilterType
    
-    init(query: Query, filterType: FilterType) {
+    init(query: Query, filterType: FilterType = .category) {
         self.query = query
         self.filterType = filterType
     }
 }
 
-extension FilterMealEndpoint: Endpoint {
+extension MealFilterEndpoint: Endpoint {
     typealias Response = MealFilterResponce
     
     var path: String {

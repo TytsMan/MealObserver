@@ -5,11 +5,25 @@
 //  Created by divan on 9/22/24.
 //
 
+import Localizer
+import Networking
 import SwiftUI
 
 @Observable
 class AppState {
     var navigationPath: NavigationPath = .init()
+    let repositories: Repositories
+    let dependencies: Dependencies
+    
+    init(
+        navigationPath: NavigationPath,
+        repositories: Repositories,
+        dependencies: Dependencies
+    ) {
+        self.navigationPath = navigationPath
+        self.repositories = repositories
+        self.dependencies = dependencies
+    }
     
     // MARK: Navigation
     
@@ -33,4 +47,13 @@ class AppState {
 enum NavigationDestination: Hashable {
     case search
     case details(id: Meal.ID)
+}
+
+struct Repositories {
+    let mealRepository: MealRepository
+}
+
+struct Dependencies {
+    let networkClient: NetworkingClient
+    let localizer: LocalizerClient
 }

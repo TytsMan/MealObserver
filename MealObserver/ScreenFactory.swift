@@ -8,18 +8,16 @@
 import Foundation
 
 final class ScreenFactory: ObservableObject {
-    private let dependencies: AppDependencies
+    private let appState: AppState
     
-    init(dependencies: AppDependencies) {
-        self.dependencies = dependencies
+    init(appState: AppState) {
+        self.appState = appState
     }
     
     func createMealFilterView() -> MealFilterView {
         MealFilterView(
             viewModel: MealFilterView.ViewModel(
-                mealFilterService: MealFilterService(
-                    network: dependencies.networkClient
-                ),
+                mealRepository: appState.repositories.mealRepository,
                 state: .default
             )
         )
@@ -28,9 +26,7 @@ final class ScreenFactory: ObservableObject {
     func createMealDetailsView(mealId: Meal.ID) -> MealDetailsView {
         MealDetailsView(
             viewModel: MealDetailsView.ViewModel(
-                mealDetailsService: MealDetailsService(
-                    network: dependencies.networkClient
-                ),
+                mealRepository: appState.repositories.mealRepository,
                 mealId: mealId
             )
         )
