@@ -10,22 +10,24 @@ import Networking
 import SwiftUI
 
 @Observable
-class AppState {
+final class AppState {
     var navigationPath: NavigationPath = .init()
     let repositories: Repositories
     let dependencies: Dependencies
+//    var navigationManager: NavigationManagerProtocol
+    let deepLinksHandler: DeepLinksHandler
     
     init(
-        navigationPath: NavigationPath,
         repositories: Repositories,
-        dependencies: Dependencies
+        dependencies: Dependencies,
+//        navigationManager: NavigationManagerProtocol,
+        deepLinksHandler: DeepLinksHandler
     ) {
-        self.navigationPath = navigationPath
         self.repositories = repositories
         self.dependencies = dependencies
+//        self.navigationManager = navigationManager
+        self.deepLinksHandler = deepLinksHandler
     }
-    
-    // MARK: Navigation
     
     func navigate(to destination: NavigationDestination) {
         if destination == .search {
@@ -33,14 +35,6 @@ class AppState {
         } else {
             navigationPath.append(destination)
         }
-    }
-    
-    func pop() {
-        navigationPath.removeLast()
-    }
-    
-    func popToRoot() {
-        navigationPath = .init()
     }
 }
 
