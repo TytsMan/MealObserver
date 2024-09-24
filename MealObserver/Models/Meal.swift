@@ -184,7 +184,7 @@ struct Meal: Hashable, Decodable, Identifiable {
             ),
         ]
             .compactMap { $0 }
-            .filter { !$0.isEmpty }
+            .filter(!\.isEmpty)
     }
     // swiftlint:enable function_body_length
 }
