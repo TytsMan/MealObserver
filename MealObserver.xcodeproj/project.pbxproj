@@ -91,6 +91,7 @@
 		867F7D872CA1F5CE00C86F4E /* Result+map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+map.swift"; sourceTree = "<group>"; };
 		867F7D8A2CA33C7500C86F4E /* RemoteMealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteMealRepository.swift; sourceTree = "<group>"; };
 		867F7D8C2CA33FB000C86F4E /* LocalMealRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalMealRepository.swift; sourceTree = "<group>"; };
+		867F7D8E2CA35B0300C86F4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,7 +159,6 @@
 				867F7D842CA1F19500C86F4E /* Repositories */,
 				867F7D802CA0EC5300C86F4E /* Resources */,
 				8646C0952C979F9A0005C0E1 /* Screens */,
-				8646C0852C9773750005C0E1 /* Services */,
 			);
 			path = MealObserver;
 			sourceTree = "<group>";
@@ -210,13 +210,6 @@
 				8646C0832C9766C90005C0E1 /* Meal.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		8646C0852C9773750005C0E1 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
 			sourceTree = "<group>";
 		};
 		8646C0882C9775380005C0E1 /* Endpoints */ = {
@@ -311,6 +304,7 @@
 		867F7D802CA0EC5300C86F4E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				867F7D8E2CA35B0300C86F4E /* Info.plist */,
 				8646C0562C9756BC0005C0E1 /* Preview Content */,
 				8646C0532C9756BC0005C0E1 /* Assets.xcassets */,
 				8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */,
@@ -697,6 +691,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MealObserver/Resources/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -734,6 +729,7 @@
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MealObserver/Resources/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
