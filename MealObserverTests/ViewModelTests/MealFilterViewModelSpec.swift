@@ -21,7 +21,11 @@ final class MealFilterViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealFilterService: MealFilterServiceSuccessMock()
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+                            mockMeal: .mock5,
+                            errorMessage: "Bad request."
+                        )
                     )
                 }
                 
@@ -35,7 +39,11 @@ final class MealFilterViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealFilterService: MealFilterServiceSuccessMock()
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+                            mockMeal: .mock5,
+                            errorMessage: "Bad request."
+                        )
                     )
                 }
                 
@@ -53,8 +61,10 @@ final class MealFilterViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealFilterService: MealFilterServiceSuccessMock(
-                            mockItems: mockItems
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+                            mockMeal: .mock5,
+                            errorMessage: "Bad request."
                         )
                     )
                 }
@@ -74,7 +84,11 @@ final class MealFilterViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealFilterService: MealFilterServiceFailureMock(failureMessage: failureMessage)
+                        mealRepository: RemoteMealRepositoryMockFailure(
+                            mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+                            mockMeal: .mock5,
+                            errorMessage: "Bad request."
+                        )
                     )
                 }
                 

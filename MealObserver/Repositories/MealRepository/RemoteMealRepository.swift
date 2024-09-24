@@ -15,12 +15,6 @@ struct RemoteMealRepository {
     ) {
         self.networkClient = networkClient
     }
-    
-    static let mock = RemoteMealRepositoryMockSuccess(
-        mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
-        mockMeal: .mock5,
-        errorMessage: "Bad request."
-    )
 }
 
 // MARK: - MealFilterRepository
@@ -53,6 +47,10 @@ extension RemoteMealRepository: MealDetailRepository {
 
 #if DEBUG
 
+extension RemoteMealRepository {
+    static let mockSuccess = RemoteMealRepositoryMockSuccess.mock
+    static let mockFailure = RemoteMealRepositoryMockFailure.mock
+}
 // MARK: - RemoteMealRepositoryMockSuccess
 
 struct RemoteMealRepositoryMockSuccess {
@@ -69,6 +67,12 @@ struct RemoteMealRepositoryMockSuccess {
         self.mockMeal = mockMeal
         self.errorMessage = errorMessage
     }
+    
+    static let mock = RemoteMealRepositoryMockSuccess(
+        mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+        mockMeal: .mock5,
+        errorMessage: "Bad request."
+    )
 }
 
 // MARK: - MealFilterRepository
@@ -101,6 +105,12 @@ struct RemoteMealRepositoryMockFailure {
     private let mockItems: [Meal]
     private let mockMeal: Meal
     private let errorMessage: String
+    
+    static let mock = RemoteMealRepositoryMockFailure(
+        mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
+        mockMeal: .mock5,
+        errorMessage: "Bad request."
+    )
     
     init(
         mockItems: [Meal],

@@ -24,7 +24,7 @@ extension MealDetailsView {
         private(set) var state: State
         
         init(
-            mealRepository: MealDetailRepository = RemoteMealRepository.mock,
+            mealRepository: MealDetailRepository = RemoteMealRepository.mockSuccess,
             state: State = .default,
             mealId: Meal.ID
         ) {
@@ -47,7 +47,7 @@ extension MealDetailsView {
                     switch result {
                     case .success(let meal):
                         guard let meal else {
-                            state = .error(message: "Bad meal id")
+                            state = .error(message: "Bad request.")
                             return
                         }
                         state = .content(Meal.addParagraphsToInstructions(meal: meal))

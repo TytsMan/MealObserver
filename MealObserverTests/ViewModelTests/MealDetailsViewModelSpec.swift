@@ -17,14 +17,16 @@ final class MealDetailsViewModelSpec: AsyncSpec {
     
     override class func spec() {
         describe("Testing MealFilterViewModel") {
+            let mockItems: [Meal] = [.mock1, .mock2, .mock3, .mock4, .mock5]
             let mockMeal: Meal = .mock5
-            let errorMessage = "Bad meal id."
+            let errorMessage = "Bad request."
             
             context("Check inital state") {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealDetailsService: MealDetailsServiceSuccessMock(
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: mockItems,
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
                         ),
@@ -42,7 +44,8 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealDetailsService: MealDetailsServiceSuccessMock(
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: mockItems,
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
                         ),
@@ -64,7 +67,8 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealDetailsService: MealDetailsServiceSuccessMock(
+                        mealRepository: RemoteMealRepositoryMockSuccess(
+                            mockItems: mockItems,
                             mockMeal: mockMeal,
                             errorMessage: errorMessage
                         ),
@@ -81,7 +85,7 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                         message: errorMessage
                     )
                     expect(viewModel.state)
-                        .to(equal(State.error(message: error.description)))
+                        .to(equal(State.error(message: error.localizedDescription)))
                 }
             }
             
@@ -89,7 +93,9 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                 var viewModel: ViewModel!
                 beforeEach {
                     viewModel = ViewModel(
-                        mealDetailsService: MealDetailsServiceFailureMock(
+                        mealRepository: RemoteMealRepositoryMockFailure(
+                            mockItems: mockItems,
+                            mockMeal: mockMeal,
                             errorMessage: errorMessage
                         ),
                         mealId: mockMeal.id
@@ -105,7 +111,7 @@ final class MealDetailsViewModelSpec: AsyncSpec {
                         message: errorMessage
                     )
                     expect(viewModel.state)
-                        .to(equal(State.error(message: error.description)))
+                        .to(equal(State.error(message: error.localizedDescription)))
                 }
             }
         }

@@ -34,7 +34,7 @@ extension MealFilterView {
         var state: State
         
         init(
-            mealRepository: MealFilterRepository = RemoteMealRepository.mock,
+            mealRepository: MealFilterRepository = RemoteMealRepository.mockSuccess,
             state: State = .default
         ) {
             self.mealRepository = mealRepository
