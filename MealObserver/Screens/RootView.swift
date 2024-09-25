@@ -20,8 +20,8 @@ struct RootView: View {
                     switch dest {
                     case let .details(mealId):
                         screenFactory.createMealDetailsView(mealId: mealId)
-                    default:
-                        Text("Destination is not reachable!")
+                    case .search:
+                        screenFactory.createMealFilterView()
                     }
                 }
         }

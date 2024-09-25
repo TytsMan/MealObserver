@@ -7,12 +7,11 @@
 
 import SwiftUI
 
-let appState: AppState = AppState()
-let environment: AppEnvironment = AppEnvironment(appState: appState)
+let appState = AppState()
+let environment = AppEnvironment(appState: appState)
 
 @main
 struct MealObserverApp: App {
-    
     var body: some Scene {
         WindowGroup {
             RootView()

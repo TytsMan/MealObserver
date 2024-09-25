@@ -50,7 +50,6 @@ protocol DeepLinksHandlerProtocol {
 }
 
 struct DeepLinksHandler: DeepLinksHandlerProtocol {
-    
     private let appState: AppState
     
     init(appState: AppState) {

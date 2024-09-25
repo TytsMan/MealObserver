@@ -68,7 +68,7 @@ struct RemoteMealRepositoryMockSuccess {
         self.errorMessage = errorMessage
     }
     
-    static let mock = RemoteMealRepositoryMockSuccess(
+    static let mock = Self(
         mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
         mockMeal: .mock5,
         errorMessage: "Bad request."
@@ -106,7 +106,7 @@ struct RemoteMealRepositoryMockFailure {
     private let mockMeal: Meal
     private let errorMessage: String
     
-    static let mock = RemoteMealRepositoryMockFailure(
+    static let mock = Self(
         mockItems: [.mock1, .mock2, .mock3, .mock4, .mock5],
         mockMeal: .mock5,
         errorMessage: "Bad request."
