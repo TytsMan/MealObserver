@@ -1,6 +1,13 @@
+Features:
+ - SwiftUI
+ - MVVM
+ - Programmatic navigation
+ - App State Management
+ - DI
+ - Repositories
+ - Unit tests
+
 TODO:
-  - Better DI
-  - Navigation Pattern for ex. Coordinator.
   - Clean architectuire.
-  - Repositories.
   - Local/remote config
+  - Snapshot tests
