@@ -7,17 +7,17 @@
 
 import Foundation
 
-final class ScreenFactory: ObservableObject {
-    private let appState: AppState
+final class ScreenFactory {
+    private let env: AppEnvironment
     
-    init(appState: AppState) {
-        self.appState = appState
+    init(env: AppEnvironment) {
+        self.env = env
     }
     
     func createMealFilterView() -> MealFilterView {
         MealFilterView(
             viewModel: MealFilterView.ViewModel(
-                mealRepository: appState.repositories.mealRepository,
+                mealRepository: env.repositories.mealRepository,
                 state: .default
             )
         )
@@ -26,7 +26,7 @@ final class ScreenFactory: ObservableObject {
     func createMealDetailsView(mealId: Meal.ID) -> MealDetailsView {
         MealDetailsView(
             viewModel: MealDetailsView.ViewModel(
-                mealRepository: appState.repositories.mealRepository,
+                mealRepository: env.repositories.mealRepository,
                 mealId: mealId
             )
         )

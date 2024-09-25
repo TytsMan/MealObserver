@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8646C0502C9756BA0005C0E1 /* MealObserverApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */; };
-		8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C0512C9756BA0005C0E1 /* ContentView.swift */; };
 		8646C0542C9756BC0005C0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8646C0532C9756BC0005C0E1 /* Assets.xcassets */; };
 		8646C0582C9756BC0005C0E1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8646C0572C9756BC0005C0E1 /* Preview Assets.xcassets */; };
 		8646C06C2C9756BC0005C0E1 /* MealObserverUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8646C06B2C9756BC0005C0E1 /* MealObserverUITests.swift */; };
@@ -41,6 +40,8 @@
 		8681DC772C9A37AC00C0AF3E /* Sequence+sorted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */; };
 		86CC40D62CA367C000720073 /* DeepLinksHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC40D52CA367C000720073 /* DeepLinksHandler.swift */; };
 		86CC40D82CA36AD600720073 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC40D72CA36AD600720073 /* NavigationManager.swift */; };
+		86CC40DA2CA3AA6100720073 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC40D92CA3AA6100720073 /* AppEnvironment.swift */; };
+		86CC40DC2CA3B10F00720073 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CC40DB2CA3B10F00720073 /* RootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,6 @@
 /* Begin PBXFileReference section */
 		8646C04C2C9756BA0005C0E1 /* MealObserver.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MealObserver.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealObserverApp.swift; sourceTree = "<group>"; };
-		8646C0512C9756BA0005C0E1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		8646C0532C9756BC0005C0E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8646C0552C9756BC0005C0E1 /* MealObserver.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MealObserver.entitlements; sourceTree = "<group>"; };
 		8646C0572C9756BC0005C0E1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -97,6 +97,8 @@
 		8681DC762C9A37AC00C0AF3E /* Sequence+sorted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+sorted.swift"; sourceTree = "<group>"; };
 		86CC40D52CA367C000720073 /* DeepLinksHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinksHandler.swift; sourceTree = "<group>"; };
 		86CC40D72CA36AD600720073 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		86CC40D92CA3AA6100720073 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		86CC40DB2CA3B10F00720073 /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,9 +156,6 @@
 			isa = PBXGroup;
 			children = (
 				867F7D8F2CA35E3400C86F4E /* System */,
-				8646C0512C9756BA0005C0E1 /* ContentView.swift */,
-				8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */,
-				865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */,
 				867F7D812CA0F25500C86F4E /* Common */,
 				8646C0802C9760E50005C0E1 /* Models */,
 				8646C0A42C97D9370005C0E1 /* Protocols */,
@@ -237,9 +236,11 @@
 		8646C0952C979F9A0005C0E1 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				86CC40DD2CA3B13400720073 /* Helpers */,
 				865D57E52C9A1A9100AAEB67 /* Views */,
 				8646C0A72C9880AC0005C0E1 /* MealDetails */,
 				8646C0962C97A03E0005C0E1 /* MealFilter */,
+				86CC40DB2CA3B10F00720073 /* RootView.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -348,10 +349,20 @@
 			isa = PBXGroup;
 			children = (
 				867F7D822CA0F27E00C86F4E /* AppState.swift */,
+				86CC40D92CA3AA6100720073 /* AppEnvironment.swift */,
 				86CC40D72CA36AD600720073 /* NavigationManager.swift */,
 				86CC40D52CA367C000720073 /* DeepLinksHandler.swift */,
+				8646C04F2C9756BA0005C0E1 /* MealObserverApp.swift */,
 			);
 			path = System;
+			sourceTree = "<group>";
+		};
+		86CC40DD2CA3B13400720073 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				865D57EA2C9A1EC600AAEB67 /* ScreenFactory.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -526,9 +537,9 @@
 				865D57F32C9A29E100AAEB67 /* String+localization.swift in Sources */,
 				867F7D882CA1F5CE00C86F4E /* Result+map.swift in Sources */,
 				867F7D8B2CA33C7500C86F4E /* RemoteMealRepository.swift in Sources */,
+				86CC40DA2CA3AA6100720073 /* AppEnvironment.swift in Sources */,
 				8646C0982C97A0660005C0E1 /* MealFilterView.swift in Sources */,
 				8646C0A32C97CE330005C0E1 /* MealView.swift in Sources */,
-				8646C0522C9756BA0005C0E1 /* ContentView.swift in Sources */,
 				865D57E72C9A1AA100AAEB67 /* PlaceholderView.swift in Sources */,
 				86CC40D82CA36AD600720073 /* NavigationManager.swift in Sources */,
 				8646C0AB2C988D8A0005C0E1 /* MealDetailsViewModel.swift in Sources */,
@@ -544,6 +555,7 @@
 				8646C08A2C9775610005C0E1 /* MealFilterEndpoint.swift in Sources */,
 				86CC40D62CA367C000720073 /* DeepLinksHandler.swift in Sources */,
 				8646C08F2C977BC90005C0E1 /* MealFilterResponce.swift in Sources */,
+				86CC40DC2CA3B10F00720073 /* RootView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

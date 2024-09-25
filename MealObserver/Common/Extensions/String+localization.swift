@@ -9,6 +9,6 @@ import Foundation
 
 extension String {
     var localized: Self {
-        dependencies.localizer.localize(string: self)
+        environment.dependencies.localizer.localize(string: self)
     }
 }

@@ -12,22 +12,6 @@ import SwiftUI
 @Observable
 final class AppState {
     var navigationPath: NavigationPath = .init()
-    let repositories: Repositories
-    let dependencies: Dependencies
-//    var navigationManager: NavigationManagerProtocol
-    let deepLinksHandler: DeepLinksHandler
-    
-    init(
-        repositories: Repositories,
-        dependencies: Dependencies,
-//        navigationManager: NavigationManagerProtocol,
-        deepLinksHandler: DeepLinksHandler
-    ) {
-        self.repositories = repositories
-        self.dependencies = dependencies
-//        self.navigationManager = navigationManager
-        self.deepLinksHandler = deepLinksHandler
-    }
     
     func navigate(to destination: NavigationDestination) {
         if destination == .search {
